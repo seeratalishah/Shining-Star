@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1081737313552",
+    "firebase_url": "https://shiningstar-3db3b.firebaseio.com",
+    "project_id": "shiningstar-3db3b",
+    "storage_bucket": "shiningstar-3db3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081737313552:android:f71f5324d94aa0b7d0f995",
+        "android_client_info": {
+          "package_name": "com.example.shiningstar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081737313552-tulbfaf2vukk8cfmiuekht5ic9u26lvk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shiningstar",
+            "certificate_hash": "0307517990b0b9a3d8a749b76b06fcdb9bf11187"
+          }
+        },
+        {
+          "client_id": "1081737313552-j6v15q10mq4ki53r0s474hqsrk4f82gj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtpDkAuBkZBUd1sToIQ7Fo1r7nvX1QiMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081737313552-j6v15q10mq4ki53r0s474hqsrk4f82gj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

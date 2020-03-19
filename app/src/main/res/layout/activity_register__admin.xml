@@ -25,8 +25,8 @@
         android:id="@+id/editnameadmin"
         android:layout_width="307dp"
         android:layout_height="45dp"
-        android:text="Name"
-        android:textColor="#ffffff"
+        android:hint="Name"
+        android:textColorHint="#ffffff"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,25 +34,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.51"/>
 
-    <EditText
-        android:id="@+id/editnconfirmpasswordadmin"
-        android:layout_width="307dp"
-        android:layout_height="45dp"
-        android:text="Confirm password"
-        android:textColor="#ffffff"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
 
     <EditText
         android:id="@+id/editemailadmin"
         android:layout_width="307dp"
         android:layout_height="45dp"
-        android:text="Email"
-        android:textColor="#ffffff"
+        android:hint="Email"
+        android:textColorHint="#ffffff"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,9 +52,10 @@
         android:id="@+id/editnpasswordadmin"
         android:layout_width="307dp"
         android:layout_height="45dp"
-        android:text="Password"
-        android:textColor="#ffffff"
+        android:hint="Password"
+        android:textColorHint="#ffffff"
         android:textSize="25dp"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,8 +69,6 @@
         android:text="Already have an account?"
         android:textColor="#ffffff"
         android:textSize="15dp"
-
-        android:textStyle=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.348"
@@ -89,14 +76,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.945" />
 
-    <TextView
-        android:id="@+id/textViewsignupadmin"
+    <Button
+        android:id="@+id/siginbtnadmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signin"
         android:textColor="#5252CC"
+        android:background="@null"
         android:textSize="20dp"
-
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +99,7 @@
         android:background="@drawable/roundedbtn"
         android:text="Sign Up"
         android:textAllCaps="false"
-        android:textColor="#ffffff"
+        android:textColor="#5252CC"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

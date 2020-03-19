@@ -4,53 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/bg">
+    tools:context=".ForgotPass">
 
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/createnewaccount2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome"
-        android:textColor="#ffffff"
-        android:textSize="30dp"
+        android:text="Forgot your password?"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.678" />
+
+    <EditText
+        android:id="@+id/forgotpassemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Enter your email"
+        android:inputType="textPersonName"
+        android:textColorHint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        app:layout_constraintVertical_bias="0.811" />
 
     <Button
-        android:id="@+id/signinbutton"
-        android:layout_width="307dp"
-        android:layout_height="40dp"
+        android:id="@+id/submitbtn"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
         android:background="@drawable/roundedbtn"
-        android:text="Sign In"
+        android:text="Submit"
         android:textAllCaps="false"
-        android:textSize="25dp"
         android:textColor="#5252CC"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71" />
+        app:layout_constraintVertical_bias="0.887" />
 
-    <Button
-        android:id="@+id/signupbtn"
-        android:layout_width="307dp"
-        android:layout_height="40dp"
-        android:background="@drawable/roundedbtn"
-        android:text="Sign Up"
-        android:textAllCaps="false"
-        android:textSize="25dp"
-        android:textColor="#5252CC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

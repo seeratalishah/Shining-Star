@@ -28,7 +28,7 @@
         android:background="@drawable/roundedbtn"
         android:text="Sign Up"
         android:textAllCaps="false"
-        android:textColor="#ffffff"
+        android:textColor="#5252CC"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,13 +54,12 @@
         app:layout_constraintVertical_bias="0.945" />
 
     <TextView
-        android:id="@+id/textViewsignupparent"
+        android:id="@+id/textViewsigninparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Signin"
         android:textColor="#5252CC"
         android:textSize="20dp"
-
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,8 +72,8 @@
         android:id="@+id/editnameparent"
         android:layout_width="307dp"
         android:layout_height="45dp"
-        android:text="Name"
-        android:textColor="#ffffff"
+        android:hint="Name"
+        android:textColorHint="#ffffff"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,25 +81,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.51" />
 
-    <EditText
-        android:id="@+id/editnconfirmpasswordparent"
-        android:layout_width="307dp"
-        android:layout_height="45dp"
-        android:text="Confirm password"
-        android:textColor="#ffffff"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
 
     <EditText
         android:id="@+id/editnpasswordparent"
         android:layout_width="307dp"
         android:layout_height="45dp"
-        android:text="Password"
-        android:textColor="#ffffff"
+        android:hint="Password"
+        android:textColorHint="#ffffff"
+        android:inputType="textPassword"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,8 +100,8 @@
         android:id="@+id/editemailparent"
         android:layout_width="307dp"
         android:layout_height="45dp"
-        android:text="Email"
-        android:textColor="#ffffff"
+        android:hint="Email"
+        android:textColorHint="#ffffff"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

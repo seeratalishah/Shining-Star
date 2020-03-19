@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Sign_Up"></activity>
+        <activity android:name=".Staff"></activity>
+        <activity android:name=".Parent" />
+        <activity android:name=".Admin" />
+        <activity android:name=".ForgotPass" />
+        <activity android:name=".Sign_Up" />
         <activity android:name=".Sign_In" />
         <activity android:name=".Register_Staff" />
         <activity android:name=".Register_Parent" />
