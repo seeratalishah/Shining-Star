@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class Login_Parent extends AppCompatActivity {
     TextView forgotpass;
     Button signin;
     TextView signup;
+    ProgressBar pb;
 
     FirebaseAuth firebaseAuth;
 
@@ -37,6 +39,7 @@ public class Login_Parent extends AppCompatActivity {
         signin =  findViewById(R.id.signinbuttonparent);
         signup =  findViewById(R.id.textViewregisterparent);
         forgotpass =  findViewById(R.id.forgotparent);
+        pb =  findViewById(R.id.pb);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -58,12 +61,13 @@ public class Login_Parent extends AppCompatActivity {
 
     }
 
-    private void adminLogin(){
-
+    private void parentLogin(){
+        pb.setVisibility(View.VISIBLE);
         firebaseAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        pb.setVisibility(View.GONE);
                         if(task.isSuccessful()){
                             if(firebaseAuth.getCurrentUser().isEmailVerified()){
                                 Intent intent = new Intent (Login_Parent.this, Parent.class);
@@ -94,7 +98,7 @@ public class Login_Parent extends AppCompatActivity {
             password.setError("Enter password");
         }
         else{
-            adminLogin();
+            parentLogin();
         }
     }
 }

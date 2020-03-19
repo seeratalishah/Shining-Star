@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class Register_Parent extends AppCompatActivity {
     EditText password;
     Button signup;
     TextView signin;
+    ProgressBar pb;
 
     FirebaseAuth firebaseAuth;
 
@@ -42,6 +44,7 @@ public class Register_Parent extends AppCompatActivity {
         password = findViewById(R.id.editnpasswordparent);
         signup = findViewById(R.id.signupbuttonparent);
         signin = findViewById(R.id.textViewsigninparent);
+        pb = findViewById(R.id.pb);
 
 
 
@@ -62,11 +65,12 @@ public class Register_Parent extends AppCompatActivity {
         final String emails = email.getText().toString().trim();
         final String passwords = password.getText().toString().trim();
 
+        pb.setVisibility(View.VISIBLE);
         firebaseAuth.createUserWithEmailAndPassword(emails, passwords)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
+                        pb.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
 
                             AuthenticationData parent = new AuthenticationData(

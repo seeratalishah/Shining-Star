@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class Login_Admin extends AppCompatActivity {
     TextView forgotpass;
     Button signin;
     Button signup;
+    ProgressBar pb;
 
     FirebaseAuth firebaseAuth;
 
@@ -38,6 +40,7 @@ public class Login_Admin extends AppCompatActivity {
         signin =  findViewById(R.id.signinbuttonadmin);
         signup =  findViewById(R.id.signupbuttonadmin);
         forgotpass =  findViewById(R.id.forgotadmin);
+        pb =  findViewById(R.id.pb);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -62,11 +65,12 @@ public class Login_Admin extends AppCompatActivity {
     }
 
     private void adminLogin(){
-
+        pb.setVisibility(View.VISIBLE);
         firebaseAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        pb.setVisibility(View.GONE);
                         if(task.isSuccessful()){
                             if(firebaseAuth.getCurrentUser().isEmailVerified()){
                                 Intent intent = new Intent (Login_Admin.this, Admin.class);

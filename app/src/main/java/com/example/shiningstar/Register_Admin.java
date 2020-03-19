@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +26,8 @@ public class Register_Admin extends AppCompatActivity {
     EditText password;
     Button signup;
     Button signin;
+
+    ProgressBar pb;
 
     FirebaseAuth firebaseAuth;
 
@@ -44,6 +47,7 @@ public class Register_Admin extends AppCompatActivity {
         password = findViewById(R.id.editnpasswordadmin);
         signup = findViewById(R.id.signupbuttonstaff);
         signin = findViewById(R.id.siginbtnadmin);
+        pb = findViewById(R.id.pb);
 
 
         signup.setOnClickListener(new View.OnClickListener() {
@@ -64,11 +68,12 @@ public class Register_Admin extends AppCompatActivity {
         final String emails = email.getText().toString().trim();
         final String passwords = password.getText().toString().trim();
 
+        pb.setVisibility(View.VISIBLE);
         firebaseAuth.createUserWithEmailAndPassword(emails, passwords)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
+                        pb.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
 
                             AuthenticationData admin = new AuthenticationData(

@@ -5,4 +5,6 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="btnColor">#ffffff</color>
+    <color name="pbcolor1">#ffffff</color>
+    <color name="pbcolor2">#6200EE</color>
 </resources>
