@@ -4,16 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".Staff">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40dp"
-        android:text="Staff After Login"
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="136dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/students"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@color/colorAccent"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp">
+
+            <Button
+                android:id="@+id/childrenbtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Children">
+            </Button>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/activities"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@color/colorAccent"
+            android:layout_toRightOf="@id/students"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Activities">
+            </Button>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/attendance"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@color/colorAccent"
+            android:layout_below="@id/students"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Attendance">
+            </Button>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@color/colorAccent"
+            android:layout_toRightOf="@id/attendance"
+            android:layout_below="@id/activities"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Parents">
+            </Button>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
