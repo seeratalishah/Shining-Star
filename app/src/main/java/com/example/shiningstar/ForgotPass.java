@@ -50,7 +50,7 @@ public class ForgotPass extends AppCompatActivity {
                         if(task.isSuccessful()){
                             //Toast.makeText(ForgotPass.this,"Password sent to your email",Toast.LENGTH_LONG).show();
                             Toast.makeText(ForgotPass.this,"Password sent to your email", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(ForgotPass.this, Sign_In.class);
+                            Intent intent = new Intent(ForgotPass.this, Login.class);
                             startActivity(intent);
                         }
                         else{
