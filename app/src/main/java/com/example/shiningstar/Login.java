@@ -139,7 +139,7 @@ public class Login extends AppCompatActivity {
                     }
                     else{
                         //Toast.makeText(Login.this, "Please verify your email address", Toast.LENGTH_LONG).show();
-                        Toast.makeText(Login.this,"Please verify your email address",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this,"Please verify your Email Address",Toast.LENGTH_SHORT).show();
 
                     }
                 }
