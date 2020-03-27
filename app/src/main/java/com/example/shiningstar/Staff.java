@@ -74,6 +74,8 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
         TextView nav_email = (TextView) hView.findViewById(R.id.email_staff);
         nav_email.setText(email_curr);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_holder_staff,new Fragment_staff_class_list()).commit();
+
     }
 
     @Override
