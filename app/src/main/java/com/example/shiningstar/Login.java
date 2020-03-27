@@ -133,12 +133,19 @@ public class Login extends AppCompatActivity {
                 progressDialog.dismiss();
                 if(task.isSuccessful())
                 {
-                    String uid = firebaseAuth.getCurrentUser().getUid();
-                    checkUserType(uid);
+                    if(firebaseAuth.getCurrentUser().isEmailVerified()){
+                        String uid = firebaseAuth.getCurrentUser().getUid();
+                        checkUserType(uid);
+                    }
+                    else{
+                        //Toast.makeText(Login.this, "Please verify your email address", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this,"Please verify your email address",Toast.LENGTH_SHORT).show();
+
+                    }
                 }
                 else
                 {
-                    Toast.makeText(Login.this, "Loggin failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Email or Password Incorrect", Toast.LENGTH_SHORT).show();
                     pref.resetData();
                 }
             }
@@ -151,10 +158,10 @@ public class Login extends AppCompatActivity {
         final boolean result = false;
         if(pref.isDataSet()){
             String[] loginData = pref.getLoginData();
-            type = loginData[3];
+            type = loginData[2];
             if(type.equalsIgnoreCase("staff")) {staff.setChecked(true);}
             else if(type.equalsIgnoreCase("parents")) {parent.setChecked(true);}
-            else if(type.equalsIgnoreCase("admin")) {admin.setChecked(true);}
+            else if(type.equalsIgnoreCase("admins")) {admin.setChecked(true);}
         }
 
         if(staff.isChecked())
@@ -173,9 +180,9 @@ public class Login extends AppCompatActivity {
 
         else if (admin.isChecked())
         {
-            type = "admin";
+            type = "admins";
             Intent i = new Intent(this, Admin.class);
-            LoginAs("admin", uid, i);
+            LoginAs("admins", uid, i);
         }
     }
 

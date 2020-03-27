@@ -3,6 +3,7 @@ package com.example.shiningstar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,12 +38,16 @@ public class RegisterUser extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
 
         FirebaseApp.initializeApp(this);
+
+        progressDialog = new ProgressDialog(this);
 
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
@@ -58,6 +63,7 @@ public class RegisterUser extends AppCompatActivity {
         pb = findViewById(R.id.pb);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.getInstance().signOut();
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,12 +93,15 @@ public class RegisterUser extends AppCompatActivity {
             final String emails = email.getText().toString().trim();
             final String passwords = password.getText().toString().trim();
 
-            pb.setVisibility(View.VISIBLE);
+            progressDialog.setTitle("Registering");
+            progressDialog.setMessage("Creating your account...");
+            progressDialog.show();
+
             firebaseAuth.createUserWithEmailAndPassword(emails, passwords)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            pb.setVisibility(View.GONE);
+                            progressDialog.dismiss();
                             if (task.isSuccessful()) {
 
                                 AdminData data = new AdminData(
@@ -150,12 +159,15 @@ public class RegisterUser extends AppCompatActivity {
             final String emails = email.getText().toString().trim();
             final String passwords = password.getText().toString().trim();
 
-            pb.setVisibility(View.VISIBLE);
+            progressDialog.setTitle("Registering");
+            progressDialog.setMessage("Creating your account...");
+            progressDialog.show();
+
             firebaseAuth.createUserWithEmailAndPassword(emails, passwords)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            pb.setVisibility(View.GONE);
+                            progressDialog.dismiss();
                             if (task.isSuccessful()) {
 
                                 ParentData data = new ParentData(
@@ -211,12 +223,15 @@ public class RegisterUser extends AppCompatActivity {
                 final String emails = email.getText().toString().trim();
                 final String passwords = password.getText().toString().trim();
 
-                pb.setVisibility(View.VISIBLE);
+            progressDialog.setTitle("Registering");
+            progressDialog.setMessage("Creating your account...");
+            progressDialog.show();
+
                 firebaseAuth.createUserWithEmailAndPassword(emails, passwords)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                pb.setVisibility(View.GONE);
+                                progressDialog.dismiss();
                                 if (task.isSuccessful()) {
 
                                     StaffData data = new StaffData(
