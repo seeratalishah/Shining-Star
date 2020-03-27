@@ -1,16 +1,22 @@
 package com.example.shiningstar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Fragment_staff_class_list.OnFragmentInteractionListener {
 
     Button signin;
     Button signup;
+
+    public void onFragmentInteraction(Uri uri){
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

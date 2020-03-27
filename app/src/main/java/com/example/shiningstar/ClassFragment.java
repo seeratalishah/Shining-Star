@@ -129,9 +129,9 @@ public class ClassFragment extends Fragment {
                 case 0:
                     return new Fragment_child_class_list();
                 case 1:
-                    return new Fragment_ChildCheckIn();
+                    return new Fragment_child_check_in();
                 case 2:
-                    return new Fragment_ActivitiesGrid();
+                    return new Fragment_activities_grid();
                 default:
                     return null;
             }

@@ -38,6 +38,8 @@ public class RegisterUser extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
 
+    DatabaseReference databaseReference;
+
     private ProgressDialog progressDialog;
 
     @Override
@@ -64,6 +66,8 @@ public class RegisterUser extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.getInstance().signOut();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,6 +163,7 @@ public class RegisterUser extends AppCompatActivity {
             final String emails = email.getText().toString().trim();
             final String passwords = password.getText().toString().trim();
 
+
             progressDialog.setTitle("Registering");
             progressDialog.setMessage("Creating your account...");
             progressDialog.show();
@@ -169,6 +174,10 @@ public class RegisterUser extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressDialog.dismiss();
                             if (task.isSuccessful()) {
+
+                                final String uid = firebaseAuth.getCurrentUser().getUid();
+
+                                AddUserName(names, uid);
 
                                 ParentData data = new ParentData(
                                         names,
@@ -223,6 +232,7 @@ public class RegisterUser extends AppCompatActivity {
                 final String emails = email.getText().toString().trim();
                 final String passwords = password.getText().toString().trim();
 
+
             progressDialog.setTitle("Registering");
             progressDialog.setMessage("Creating your account...");
             progressDialog.show();
@@ -233,6 +243,10 @@ public class RegisterUser extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
                                 if (task.isSuccessful()) {
+
+                                    final String uid = firebaseAuth.getCurrentUser().getUid();
+
+                                    AddUserName(names, uid);
 
                                     StaffData data = new StaffData(
                                             names,
@@ -299,6 +313,21 @@ public class RegisterUser extends AppCompatActivity {
         }
         else{
             UserType();
+        }
+    }
+
+    private void AddUserName(String username, String uid)
+    {
+        if(staff.isChecked())
+        {
+            databaseReference.child("staff").child(uid).child("name").setValue(username);
+            databaseReference.child("staff").child(uid).child("class_ids").setValue("0");
+        }
+
+        else if (parent.isChecked())
+        {
+            databaseReference.child("parents").child(uid).child("name").setValue(username);
+            databaseReference.child("parents").child(uid).child("children").setValue("");
         }
     }
 

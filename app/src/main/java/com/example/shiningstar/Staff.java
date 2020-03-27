@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,7 +27,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Staff extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Staff extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+        Fragment_staff_class_list.OnFragmentInteractionListener {
 
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
@@ -117,6 +119,11 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }
