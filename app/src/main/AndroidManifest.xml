@@ -11,9 +11,6 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Login"></activity>
         <activity android:name=".RegisterUser" />
-        <activity
-            android:name=".Children"
-            android:label="@string/title_activity_children" />
         <activity android:name=".Staff" >
 
         </activity>
