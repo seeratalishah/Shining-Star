@@ -231,6 +231,7 @@ public class RegisterUser extends AppCompatActivity {
                 final String names = name.getText().toString().trim();
                 final String emails = email.getText().toString().trim();
                 final String passwords = password.getText().toString().trim();
+                final String class_ids = "0";
 
 
             progressDialog.setTitle("Registering");
@@ -251,7 +252,8 @@ public class RegisterUser extends AppCompatActivity {
                                     StaffData data = new StaffData(
                                             names,
                                             emails,
-                                            passwords
+                                            passwords,
+                                            class_ids
                                     );
 
                                     FirebaseDatabase.getInstance().getReference("staff")
