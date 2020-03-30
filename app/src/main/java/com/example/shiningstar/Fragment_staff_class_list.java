@@ -143,7 +143,7 @@ public class Fragment_staff_class_list extends Fragment {
                     List<String> ClassTimingsList = new ArrayList<String>();
                     for (String currClassID : myList) {
                         ClassNameList.add(dataSnapshot.child("classes").child(currClassID).child("class_name").getValue().toString());
-                        ClassTimingsList.add(dataSnapshot.child("classes").child(currClassID).child("class_timings").getValue().toString());
+                        ClassTimingsList.add(dataSnapshot.child("classes").child(currClassID).child("class_room").getValue().toString());
                     }
                     String[] ClassName = new String[ClassNameList.size()];
                     ClassNameList.toArray(ClassName);
@@ -234,28 +234,28 @@ public class Fragment_staff_class_list extends Fragment {
                     dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.child("classes").child(Classcode).exists())
-                            {
+
                                 String currClasses = dataSnapshot.child("staff").child(uid).child("class_ids").getValue().toString();
                                 if(currClasses.equals("0"))
                                 {
                                     dataRef.child("staff").child(uid).child("class_ids").setValue(Classcode + ",");
+                                    dataRef.child("classes").child(Classcode).child("class_name").setValue(1);
+                                    dataRef.child("classes").child(Classcode).child("class_room").setValue(2);
+
                                     RefreshClassList();
                                 }
                                 else if(!isClassAssigned(currClasses, Classcode)) {
                                     currClasses += Classcode + ",";
                                     dataRef.child("staff").child(uid).child("class_ids").setValue(currClasses);
+                                    dataRef.child("classes").child(Classcode).child("class_name").setValue(1);
+                                    dataRef.child("classes").child(Classcode).child("class_room").setValue(2);
                                     Toast.makeText(getContext(), "Your new class '" + Classcode + "' has been added", Toast.LENGTH_SHORT).show();
                                     RefreshClassList();
                                 }
                                 else {
                                     Toast.makeText(getContext(), "You have been assigned to this class already!", Toast.LENGTH_LONG).show();
                                 }
-                            }
-                            else
-                            {
-                                Toast.makeText(getContext(), "Course code you have entered is wrong.", Toast.LENGTH_LONG).show();
-                            }
+
                         }
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
