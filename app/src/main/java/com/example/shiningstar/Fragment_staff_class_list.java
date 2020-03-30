@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -216,16 +217,31 @@ public class Fragment_staff_class_list extends Fragment {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         final String uid = firebaseAuth.getCurrentUser().getUid();
+
+        LayoutInflater factory = LayoutInflater.from(getActivity());
+
+
+        final View textEntryView = factory.inflate(R.layout.class_data_layout, null);
+
+        final EditText id = (EditText) textEntryView.findViewById(R.id.classid);
+        final EditText name = (EditText) textEntryView.findViewById(R.id.classname);
+        final EditText room = (EditText) textEntryView.findViewById(R.id.classroom);
+
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
         alert.setTitle("Add new class");
         alert.setMessage("Enter a valid class code of the class assigned to you");
 
-        final EditText input = new EditText(getContext());
-        alert.setView(input);
+
+
+        alert.setView(textEntryView);
 
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                final String Classcode = input.getText().toString();
+
+                final String Classcode = id.getText().toString();
+                final String Classname = name.getText().toString();
+                final String Classroom = room.getText().toString();
+
                 if(Classcode.isEmpty())
                     Toast.makeText(getContext(), "Class Code cannot be empty!", Toast.LENGTH_SHORT).show();
                 else
@@ -239,17 +255,17 @@ public class Fragment_staff_class_list extends Fragment {
                                 if(currClasses.equals("0"))
                                 {
                                     dataRef.child("staff").child(uid).child("class_ids").setValue(Classcode + ",");
-                                    dataRef.child("classes").child(Classcode).child("class_name").setValue(1);
-                                    dataRef.child("classes").child(Classcode).child("class_room").setValue(2);
+                                    dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
+                                    dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
 
                                     RefreshClassList();
                                 }
                                 else if(!isClassAssigned(currClasses, Classcode)) {
                                     currClasses += Classcode + ",";
                                     dataRef.child("staff").child(uid).child("class_ids").setValue(currClasses);
-                                    dataRef.child("classes").child(Classcode).child("class_name").setValue(1);
-                                    dataRef.child("classes").child(Classcode).child("class_room").setValue(2);
-                                    Toast.makeText(getContext(), "Your new class '" + Classcode + "' has been added", Toast.LENGTH_SHORT).show();
+                                    dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
+                                    dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
+                                    Toast.makeText(getContext(), "Your new class has been added", Toast.LENGTH_SHORT).show();
                                     RefreshClassList();
                                 }
                                 else {
