@@ -99,6 +99,7 @@ public class Fragment_child_class_list extends Fragment {
                         public void onCancelled(DatabaseError databaseError) {}
                     });
                 }
+
                 adapter.setItemClickListener(new MyRecyclerViewAdapter.RecyclerItemClickListener() {
                     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
                     @Override

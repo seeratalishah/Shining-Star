@@ -82,7 +82,7 @@ public class Fragment_child_check_in extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 checked_in_list = new ArrayList<String>(Arrays.asList(dataSnapshot.child(uid).child("checked_in").getValue().toString()));
-                checked_out_list =  new ArrayList<String>(Arrays.asList(dataSnapshot.child(uid).child("check_out").getValue().toString()));
+                checked_out_list =  new ArrayList<String>(Arrays.asList(dataSnapshot.child(uid).child("checked_out").getValue().toString()));
                 absent_list =  new ArrayList<String>(Arrays.asList(dataSnapshot.child(uid).child("absent").getValue().toString()));
             }
             @Override

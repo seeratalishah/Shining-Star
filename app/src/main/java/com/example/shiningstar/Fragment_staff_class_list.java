@@ -258,9 +258,12 @@ public class Fragment_staff_class_list extends Fragment {
                                     dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
                                     dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
 
-                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("checked_in").setValue(1);
-                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("check_out").setValue(2);
-                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("absent").setValue(3);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("checked_in").setValue(0);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("checked_out").setValue(0);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("absent").setValue(0);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("name").setValue("ali");
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("id").setValue(0);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("pic").setValue(0);
 
 
                                     RefreshClassList();
@@ -271,9 +274,12 @@ public class Fragment_staff_class_list extends Fragment {
                                     dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
                                     dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
 
-                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("checked_in").setValue(1);
-                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("checked_out").setValue(2);
-                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("absent").setValue(3);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("checked_in").setValue(0);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("checked_out").setValue(0);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("absent").setValue(0);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("name").setValue("ali");
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("id").setValue(0);
+                                    dataRef.child("classes").child(Classcode).child("children").child(uid).child("pic").setValue(0);
 
                                     Toast.makeText(getContext(), "Your new class has been added", Toast.LENGTH_SHORT).show();
                                     RefreshClassList();
