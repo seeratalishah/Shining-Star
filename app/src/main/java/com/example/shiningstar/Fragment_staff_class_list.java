@@ -252,6 +252,7 @@ public class Fragment_staff_class_list extends Fragment {
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
                                 String currClasses = dataSnapshot.child("staff").child(uid).child("class_ids").getValue().toString();
+
                                 if(currClasses.equals("0"))
                                 {
                                     dataRef.child("staff").child(uid).child("class_ids").setValue(Classcode + ",");

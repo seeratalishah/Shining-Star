@@ -67,6 +67,9 @@ public class Parent extends AppCompatActivity implements NavigationView.OnNaviga
         TextView nav_email = (TextView) hView.findViewById(R.id.email_parent);
         nav_email.setText(email_curr);
 
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_holder_parent,new ParentChildList()).commit();
+
     }
 
     @Override
