@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,8 +34,8 @@ public class Fragment_child_check_in extends Fragment {
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private androidx.recyclerview.widget.RecyclerView recyclerView;
     private MyGridRecyclerAdapter adapter;
-    DatabaseReference classes = databaseReference.child("classes");
-    DatabaseReference children = databaseReference.child("children");
+    DatabaseReference classesTb = databaseReference.child("classes");
+    DatabaseReference childrenTb = databaseReference.child("children");
     String currentClass = "";
     String currentClassName = "";
     private List<String> checked_in_list = new ArrayList<>();
@@ -71,32 +70,25 @@ public class Fragment_child_check_in extends Fragment {
             }
         });
 
-
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        final String uid = firebaseAuth.getCurrentUser().getUid();
-
-
-
-        classes.child(currentClass).child("children").addValueEventListener(new ValueEventListener() {
+        classesTb.child(currentClass).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
-                checked_in_list = new ArrayList<String>(Arrays.asList(dataSnapshot.child(uid).child("checked_in").getValue().toString()));
-                checked_out_list =  new ArrayList<String>(Arrays.asList(dataSnapshot.child(uid).child("check_out").getValue().toString()));
-                absent_list =  new ArrayList<String>(Arrays.asList(dataSnapshot.child(uid).child("absent").getValue().toString()));
+                checked_in_list = new ArrayList<String>(Arrays.asList(dataSnapshot.child("checked_in").getValue().toString().split(",")));
+                checked_out_list =  new ArrayList<String>(Arrays.asList(dataSnapshot.child("checked_out").getValue().toString().split(",")));
+                absent_list =  new ArrayList<String>(Arrays.asList(dataSnapshot.child("absent").getValue().toString().split(",")));
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {}
         });
 
-        classes.child(currentClass).child("children").addValueEventListener(new ValueEventListener() {
+        classesTb.child(currentClass).child("children").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String class_children_string =  dataSnapshot.getValue().toString();
                 String[] class_children_arr = class_children_string.split(",");
                 final List<HashMap<String,String>> childrenList = new ArrayList<>();
                 for(final String childInClass : class_children_arr){
-                    children.child(childInClass).addListenerForSingleValueEvent(new ValueEventListener() {
+                    childrenTb.child(childInClass).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             String name = dataSnapshot.child("name").getValue().toString();

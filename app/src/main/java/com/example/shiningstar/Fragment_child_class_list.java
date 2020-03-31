@@ -27,7 +27,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,8 +44,8 @@ import java.util.List;
 public class Fragment_child_class_list extends Fragment {
 
     DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference classes = db.child("classes");
-    DatabaseReference children = db.child("children");
+    DatabaseReference classesTb = db.child("classes");
+    DatabaseReference childrenTb = db.child("children");
     String currentClass = "";
     MyRecyclerViewAdapter adapter = new MyRecyclerViewAdapter();
     RecyclerView recyclerView;
@@ -72,19 +71,14 @@ public class Fragment_child_class_list extends Fragment {
             }
         });
 
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        final String uid = firebaseAuth.getCurrentUser().getUid();
-
-
-        classes.child(currentClass).child("children").addValueEventListener(new ValueEventListener() {
+        classesTb.child(currentClass).child("children").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
                 String class_children_string =  dataSnapshot.getValue().toString();
                 String[] class_children_arr = class_children_string.split(",");
                 final List<HashMap<String,String>> childrenList = new ArrayList<>();
                 for(final String childInClass : class_children_arr){
-                    children.child(childInClass).addListenerForSingleValueEvent(new ValueEventListener() {
+                    childrenTb.child(childInClass).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             String name = dataSnapshot.child("name").getValue().toString();
