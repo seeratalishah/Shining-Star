@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,7 +34,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Console;
 import java.util.Random;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 public class ClassFragment extends Fragment {
@@ -93,6 +97,9 @@ public class ClassFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 toolbar.setTitle(dataSnapshot.child("class_name").getValue().toString());
                 className = dataSnapshot.child("class_name").getValue().toString();
+
+                String name = dataSnapshot.child("class_name").getValue(String.class);
+                Log.d("TAG", name);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {}
