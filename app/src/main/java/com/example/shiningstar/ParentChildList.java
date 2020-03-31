@@ -134,10 +134,15 @@ public class ParentChildList extends Fragment {
         });
 
 
-        parent.child("children").addValueEventListener(new ValueEventListener() {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        final String uid = firebaseAuth.getCurrentUser().getUid();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String s = String.valueOf(dataSnapshot.getValue());
+
+                String s = dataSnapshot.child("parents").child(uid).child("children").getValue().toString();
+
                 if(s.equalsIgnoreCase("0") || s.isEmpty())
                     return;
                 String[] ids = s.split(",");
