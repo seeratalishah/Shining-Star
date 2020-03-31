@@ -102,14 +102,14 @@ public class ParentAddChild extends Fragment {
                 if(currentChildren.equals("0"))
                 {
                     parent.child("children").setValue(childId+',');
-                    children.child(childId).child("child_name").setValue(0);
+                    children.child(childId).child("name").setValue(0);
                     Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
                     GoBackToChildList();
                 }
                 else if(!isClassAssigned(currentChildren, childId)) {
                     currentChildren += childId + ",";
                     parent.child("children").setValue(childId+',');
-                    children.child(childId).child("child_name").setValue(0);
+                    children.child(childId).child("name").setValue(0);
                     Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
                     GoBackToChildList();
                 }
