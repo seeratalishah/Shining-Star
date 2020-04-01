@@ -166,6 +166,7 @@ public class ParentAddChild extends Fragment {
                     children.child(childId).child("name").setValue(name);
                     children.child(childId).child("id").setValue(childId);
                     children.child(childId).child("pic").setValue(name);
+                    children.child(childId).child("act_ids").setValue(0);
                     Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
                     GoBackToChildList();
                 }
@@ -175,6 +176,7 @@ public class ParentAddChild extends Fragment {
                     children.child(childId).child("name").setValue(name);
                     children.child(childId).child("id").setValue(childId);
                     children.child(childId).child("pic").setValue(name);
+                    children.child(childId).child("act_ids").setValue(0);
                     Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
                     GoBackToChildList();
                 }
