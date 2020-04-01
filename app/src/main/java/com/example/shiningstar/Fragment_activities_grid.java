@@ -14,7 +14,7 @@ import android.widget.ImageButton;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_activities_grid extends Fragment {
+public class Fragment_activities_grid extends Fragment implements View.OnClickListener {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
