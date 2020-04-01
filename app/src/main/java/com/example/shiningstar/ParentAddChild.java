@@ -196,14 +196,14 @@ public class ParentAddChild extends Fragment {
                                 @Override
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                     progressDialog.dismiss();
-                                    Toast.makeText(getActivity(), "Uploaded", Toast.LENGTH_SHORT).show();
+
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
                                     progressDialog.dismiss();
-                                    Toast.makeText(getActivity(), "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+
                                 }
                             })
                             .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

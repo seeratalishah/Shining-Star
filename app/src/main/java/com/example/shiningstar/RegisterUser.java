@@ -162,6 +162,7 @@ public class RegisterUser extends AppCompatActivity {
             final String names = name.getText().toString().trim();
             final String emails = email.getText().toString().trim();
             final String passwords = password.getText().toString().trim();
+            final String children = "0";
 
 
             progressDialog.setTitle("Registering");
@@ -182,7 +183,8 @@ public class RegisterUser extends AppCompatActivity {
                                 ParentData data = new ParentData(
                                         names,
                                         emails,
-                                        passwords
+                                        passwords,
+                                        children
                                 );
 
                                 FirebaseDatabase.getInstance().getReference("parents")
@@ -329,7 +331,7 @@ public class RegisterUser extends AppCompatActivity {
         else if (parent.isChecked())
         {
             databaseReference.child("parents").child(uid).child("name").setValue(username);
-            databaseReference.child("parents").child(uid).child("children").setValue("");
+            databaseReference.child("parents").child(uid).child("children").setValue("0");
         }
     }
 
