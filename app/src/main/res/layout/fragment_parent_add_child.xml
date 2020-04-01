@@ -12,17 +12,17 @@
     <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#ffffff"
+        android:layout_width="364dp"
+        android:layout_height="536dp"
         android:layout_margin="20dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="1.0">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView5"
@@ -43,18 +43,38 @@
             tools:layout_editor_absoluteX="-10dp"
             tools:layout_editor_absoluteY="147dp" />
 
+        <EditText
+            android:id="@+id/childname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Child Name"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="-10dp"
+            tools:layout_editor_absoluteY="147dp" />
+
+
+        <ImageButton
+            android:id="@+id/imagechild"
+            android:layout_width="match_parent"
+            android:layout_height="268dp"
+            android:background="@null"
+            android:src="@drawable/blank_image" />
+
         <Button
             android:id="@+id/button_addChild"
-            android:theme="@style/Widget.AppCompat.Button"
-            android:padding="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Child"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:padding="15dp"
+            android:text="Add Child"
             android:textSize="18sp"
+            android:theme="@style/Widget.AppCompat.Button"
             tools:layout_editor_absoluteX="142dp"
             tools:layout_editor_absoluteY="306dp"
             tools:textAllCaps="false" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.UUID;
 
 /**
  * Created by chinn on 11/29/2017.
@@ -67,7 +68,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String pic_name = dataSnapshot.getValue().toString();
                 if(!pic_name.isEmpty()||pic_name.equalsIgnoreCase("0")) {
-                    StorageReference pic = FirebaseStorage.getInstance().getReference().child("PostImages").child(pic_name);
+                    StorageReference pic = FirebaseStorage.getInstance().getReference().child("images").child(pic_name);
                     Glide.with(holder.itemView.getContext()).using(new FirebaseImageLoader())
                             .load(pic)
                             .diskCacheStrategy(DiskCacheStrategy.NONE)
