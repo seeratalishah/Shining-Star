@@ -75,10 +75,12 @@ public class Fragment_activities_child_list extends Fragment {
         getCheckinStudents();
 
         NextButton = (Button) view.findViewById(R.id.button_Next);
+
         NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String taggedchild = GetSelectedChild();
+
                 if(!taggedchild.equals("error"))
                     LaunchIt(taggedchild);
             }
@@ -136,6 +138,7 @@ public class Fragment_activities_child_list extends Fragment {
                     String[] noclasses = {"There are no children yet"};
                     ListAdapter myListAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, noclasses);
                     ChildNameLS.setAdapter(myListAdapter);
+                    NextButton.setVisibility(View.GONE);
 
                 }
 
