@@ -69,7 +69,7 @@ public class MyGridRecyclerAdapter extends RecyclerView.Adapter<MyGridRecyclerAd
         }
         String pic_name = child.get("pic");
         if(!pic_name.isEmpty()||pic_name.equalsIgnoreCase("0")) {
-            StorageReference pic = FirebaseStorage.getInstance().getReference().child("PostImages").child(pic_name);
+            StorageReference pic = FirebaseStorage.getInstance().getReference().child("images").child(pic_name);
             Glide.with(holder.itemView.getContext()).using(new FirebaseImageLoader())
                     .load(pic)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
