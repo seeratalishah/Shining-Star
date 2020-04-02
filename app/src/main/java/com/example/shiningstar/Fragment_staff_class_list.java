@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
@@ -134,7 +135,7 @@ public class Fragment_staff_class_list extends Fragment {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String AllClasses = dataSnapshot.child("staff").child(uid).child("class_ids").getValue().toString();
+                String AllClasses = dataSnapshot.child("staff").child("class_ids").getValue().toString();
                 if(!AllClasses.equals("0")) {
                     HasClasses = true;
                     String[] myList = AllClasses.split(",");
@@ -251,31 +252,36 @@ public class Fragment_staff_class_list extends Fragment {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                String currClasses = dataSnapshot.child("staff").child(uid).child("class_ids").getValue().toString();
+                            String currClasses = dataSnapshot.child("staff").child("class_ids").getValue().toString();
+
+                            String childrenIDs = dataSnapshot.child("parents").child("children").getValue().toString();
 
                                 if(currClasses.equals("0"))
                                 {
-                                    dataRef.child("staff").child(uid).child("class_ids").setValue(Classcode + ",");
+                                    dataRef.child("staff").child("class_ids").setValue(Classcode + ",");
                                     dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
                                     dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
 
                                     dataRef.child("classes").child(Classcode).child("checked_in").setValue(0);
                                     dataRef.child("classes").child(Classcode).child("checked_out").setValue(0);
                                     dataRef.child("classes").child(Classcode).child("absent").setValue(0);
-                                    dataRef.child("classes").child(Classcode).child("children").setValue(0);
+
+                                    dataRef.child("classes").child(Classcode).child("children").setValue(childrenIDs);
 
                                     RefreshClassList();
                                 }
                                 else if(!isClassAssigned(currClasses, Classcode)) {
                                     currClasses += Classcode + ",";
-                                    dataRef.child("staff").child(uid).child("class_ids").setValue(currClasses);
+                                    dataRef.child("staff").child("class_ids").setValue(currClasses);
                                     dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
                                     dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
 
                                     dataRef.child("classes").child(Classcode).child("checked_in").setValue(0);
                                     dataRef.child("classes").child(Classcode).child("checked_out").setValue(0);
                                     dataRef.child("classes").child(Classcode).child("absent").setValue(0);
-                                    dataRef.child("classes").child(Classcode).child("children").setValue(0);
+
+
+                                    dataRef.child("classes").child(Classcode).child("children").setValue(childrenIDs);
 
                                     Toast.makeText(getContext(), "Your new class has been added", Toast.LENGTH_SHORT).show();
                                     RefreshClassList();

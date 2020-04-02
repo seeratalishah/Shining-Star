@@ -38,6 +38,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static android.app.Activity.RESULT_OK;
@@ -57,6 +59,8 @@ public class ParentAddChild extends Fragment {
     private FirebaseUser user;
 
     DatabaseReference db;
+
+    String currentClass = "";
 
     private EditText childID, childName;
     private ImageButton imageChild;
@@ -93,14 +97,12 @@ public class ParentAddChild extends Fragment {
             }
         });
 
-
         addChildButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                     addChildIfExixts();
-                }
-
+            }
         });
 
         return v;
@@ -148,21 +150,38 @@ public class ParentAddChild extends Fragment {
         final String childId = childID.getText().toString();
         name = childName.getText().toString();
 
-        final DatabaseReference parent = db.child("parents").child(user.getUid());
+        final DatabaseReference parent = db.child("parents");
         final DatabaseReference children = db.child("children");
+        final DatabaseReference classes = db.child("classes");
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                String currentChildren = dataSnapshot.child("parents").child(uid).child("children").getValue().toString();
+                String currentChildren = dataSnapshot.child("parents").child("children").getValue().toString();
+
+                String AllClasses = dataSnapshot.child("staff").child("class_ids").getValue().toString();
+
+
+                String[] myList = AllClasses.split(",");
 
 
                 storage = FirebaseStorage.getInstance();
                 storageReference = storage.getReference();
 
+
                 if(currentChildren.equals("0"))
                 {
                     parent.child("children").setValue(childId+',');
+
+                    if(dataSnapshot.hasChild("classes")){
+
+                        for (String currClassID : myList) {
+                            classes.child(currClassID).child("children").setValue(childId+',');
+                        }
+
+
+                    }
+
                     children.child(childId).child("name").setValue(name);
                     children.child(childId).child("id").setValue(childId);
                     children.child(childId).child("pic").setValue(name);
@@ -173,6 +192,17 @@ public class ParentAddChild extends Fragment {
                 else if(!isClassAssigned(currentChildren, childId)) {
                     currentChildren += childId + ",";
                     parent.child("children").setValue(currentChildren);
+
+                    if(dataSnapshot.hasChild("classes")){
+
+                        for (String currClassID : myList) {
+                            classes.child(currClassID).child("children").setValue(currentChildren);
+                        }
+
+
+                    }
+
+
                     children.child(childId).child("name").setValue(name);
                     children.child(childId).child("id").setValue(childId);
                     children.child(childId).child("pic").setValue(name);
@@ -252,8 +282,6 @@ public class ParentAddChild extends Fragment {
             }
         }
     }
-
-
 
 
     private boolean isClassAssigned(String classList, String NewClass)

@@ -42,6 +42,8 @@ public class Fragment_child_check_in extends Fragment {
     private List<String> checked_out_list = new ArrayList<>();
     private List<String> absent_list = new ArrayList<>();
 
+    private boolean HasClasses = false;
+
 
     public Fragment_child_check_in() {
         // Required empty public constructor
@@ -84,27 +86,33 @@ public class Fragment_child_check_in extends Fragment {
         classesTb.child(currentClass).child("children").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String class_children_string =  dataSnapshot.getValue().toString();
+                final String class_children_string =  dataSnapshot.getValue().toString();
                 String[] class_children_arr = class_children_string.split(",");
                 final List<HashMap<String,String>> childrenList = new ArrayList<>();
                 for(final String childInClass : class_children_arr){
                     childrenTb.child(childInClass).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            String name = dataSnapshot.child("name").getValue().toString();
-                            HashMap<String, String> childInfo = new HashMap<String, String>();
-                            childInfo.put("name",name);
-                            childInfo.put("id",childInClass);
-                            childInfo.put("pic",dataSnapshot.child("pic").getValue().toString());
-                            if(checked_in_list.contains(childInClass)){
-                                childInfo.put("status", "Checked In");
-                            } else if(checked_out_list.contains(childInClass)){
-                                childInfo.put("status", "Checked Out");
-                            } else if(absent_list.contains(childInClass)){
-                                childInfo.put("status", "Absent");
-                            } else { childInfo.put("status", "none");}
-                            childrenList.add(childInfo);
-                            adapter.setChildren(childrenList);
+
+
+                            if(!class_children_string.equals("0")) {
+
+                                String name = dataSnapshot.child("name").getValue().toString();
+                                HashMap<String, String> childInfo = new HashMap<String, String>();
+                                childInfo.put("name",name);
+                                childInfo.put("id",childInClass);
+                                childInfo.put("pic",dataSnapshot.child("pic").getValue().toString());
+                                if(checked_in_list.contains(childInClass)){
+                                    childInfo.put("status", "Checked In");
+                                } else if(checked_out_list.contains(childInClass)){
+                                    childInfo.put("status", "Checked Out");
+                                } else if(absent_list.contains(childInClass)){
+                                    childInfo.put("status", "Absent");
+                                } else { childInfo.put("status", "none");}
+                                childrenList.add(childInfo);
+                                adapter.setChildren(childrenList);
+
+                                }
                         }
                         @Override
                         public void onCancelled(DatabaseError databaseError) {}
@@ -115,6 +123,8 @@ public class Fragment_child_check_in extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) {}
         });
+
+
         recyclerView.setAdapter(adapter);
 
         v.findViewById(R.id.btn_checkin).setOnClickListener(new View.OnClickListener() {

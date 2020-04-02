@@ -325,13 +325,13 @@ public class RegisterUser extends AppCompatActivity {
         if(staff.isChecked())
         {
             databaseReference.child("staff").child(uid).child("name").setValue(username);
-            databaseReference.child("staff").child(uid).child("class_ids").setValue("0");
+            databaseReference.child("staff").child("class_ids").setValue("0");
         }
 
         else if (parent.isChecked())
         {
             databaseReference.child("parents").child(uid).child("name").setValue(username);
-            databaseReference.child("parents").child(uid).child("children").setValue("0");
+            databaseReference.child("parents").child("children").setValue("0");
         }
     }
 
