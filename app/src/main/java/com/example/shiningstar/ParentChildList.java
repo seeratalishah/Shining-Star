@@ -141,7 +141,7 @@ public class ParentChildList extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                String s = dataSnapshot.child("parents").child(uid).child("children").getValue().toString();
+                String s = dataSnapshot.child("parents").child("children").getValue().toString();
 
                 if(s.equalsIgnoreCase("0") || s.isEmpty())
                     return;

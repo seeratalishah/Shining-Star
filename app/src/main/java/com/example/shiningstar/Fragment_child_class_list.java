@@ -77,12 +77,6 @@ public class Fragment_child_class_list extends Fragment {
         final View v= inflater.inflate(R.layout.fragment_child_class_list, container, false);
         currentClass = ClassFragment.classid;
 
-        Intent intent = new Intent(getActivity().getBaseContext(),
-                ParentAddChild.class);
-        intent.putExtra("classIDs", currentClass);
-        getActivity().startActivity(intent);
-
-
         FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.Button_AddChildToClass);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

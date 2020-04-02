@@ -390,7 +390,7 @@ public class Fragment_photo_activity extends Fragment {
         String ImageName = "Image_" + MyActId;
         databaseReference.child(MyActId).child("photo_name").setValue(ImageName);
 
-        StorageReference storagePref = FirebaseStorage.getInstance().getReference().child("PostImages").child(ImageName);
+        StorageReference storagePref = FirebaseStorage.getInstance().getReference().child("images").child(ImageName);
         storagePref.putFile(CurrImageURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {

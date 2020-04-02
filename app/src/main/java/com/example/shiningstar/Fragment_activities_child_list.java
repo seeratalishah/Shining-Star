@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckedTextView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -120,12 +121,28 @@ public class Fragment_activities_child_list extends Fragment {
                 String[] AllChildIdsArray = AllChildIds.split(",");
                 setChildIdsList(AllChildIdsArray);
                 List<String> AllChildNamesList = new ArrayList<String>();
-                for(String id : AllChildIdsArray)
+
+                if(dataSnapshot.hasChild("children"))
                 {
-                    String name = dataSnapshot.child("children").child(id).child("name").getValue().toString();
-                    AllChildNamesList.add(name);
+                    for(String id : AllChildIdsArray)
+                    {
+                        String name = dataSnapshot.child("children").child(id).child("name").getValue().toString();
+                        AllChildNamesList.add(name);
+                    }
+                    setListView(AllChildNamesList);
                 }
-                setListView(AllChildNamesList);
+                else{
+
+                    String[] noclasses = {"There are no children yet"};
+                    ListAdapter myListAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, noclasses);
+                    ChildNameLS.setAdapter(myListAdapter);
+
+                }
+
+
+
+
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
