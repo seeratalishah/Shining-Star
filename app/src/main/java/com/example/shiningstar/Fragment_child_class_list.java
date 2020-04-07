@@ -170,9 +170,9 @@ public class Fragment_child_class_list extends Fragment {
 
 
                     recyclerView =(androidx.recyclerview.widget.RecyclerView) v.findViewById(R.id.child_class_list);
-                    LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                     recyclerView.setLayoutManager(layoutManager);
-                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), layoutManager.getOrientation());
+                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), layoutManager.getOrientation());
                     recyclerView.addItemDecoration(dividerItemDecoration);
                     recyclerView.setHasFixedSize(true);
                     recyclerView.setAdapter(adapter);

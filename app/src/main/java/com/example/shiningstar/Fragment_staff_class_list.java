@@ -266,7 +266,7 @@ public class Fragment_staff_class_list extends Fragment {
                                     dataRef.child("classes").child(Classcode).child("checked_out").setValue(0);
                                     dataRef.child("classes").child(Classcode).child("absent").setValue(0);
 
-                                    dataRef.child("classes").child(Classcode).child("children").setValue(childrenIDs);
+                                    dataRef.child("classes").child(Classcode).child("children").setValue(0);
 
                                     RefreshClassList();
                                 }
@@ -281,7 +281,7 @@ public class Fragment_staff_class_list extends Fragment {
                                     dataRef.child("classes").child(Classcode).child("absent").setValue(0);
 
 
-                                    dataRef.child("classes").child(Classcode).child("children").setValue(childrenIDs);
+                                   dataRef.child("classes").child(Classcode).child("children").setValue(0);
 
                                     Toast.makeText(getContext(), "Your new class has been added", Toast.LENGTH_SHORT).show();
                                     RefreshClassList();

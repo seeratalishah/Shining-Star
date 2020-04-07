@@ -73,8 +73,8 @@ public class ShareChildCode extends Fragment {
             public void onClick(View v) {
                 String myMessage = "Hello there, \nHere is the ChildCode for the student '" + ChildName + "'. \n" +
                         "ChildCode = '" + ChildId + "'. \n" +
-                        "You can use this code to add this child to your list." +
-                        "You can also share this with your other family members who has the app 'School Diaries'. \nThank you.";
+                        "You can use this code to add this child to your class." +
+                        "\nThank you.";
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);

@@ -173,6 +173,8 @@ public class ParentAddChild extends Fragment {
                 {
                     parent.child("children").setValue(childId+',');
 
+                    /*
+
                     if(dataSnapshot.hasChild("classes")){
 
                         for (String currClassID : myList) {
@@ -181,6 +183,9 @@ public class ParentAddChild extends Fragment {
 
 
                     }
+
+                    */
+
 
                     children.child(childId).child("name").setValue(name);
                     children.child(childId).child("id").setValue(childId);
@@ -193,7 +198,7 @@ public class ParentAddChild extends Fragment {
                     currentChildren += childId + ",";
                     parent.child("children").setValue(currentChildren);
 
-                    if(dataSnapshot.hasChild("classes")){
+                  /*  if(dataSnapshot.hasChild("classes")){
 
                         for (String currClassID : myList) {
                             classes.child(currClassID).child("children").setValue(currentChildren);
@@ -201,7 +206,7 @@ public class ParentAddChild extends Fragment {
 
 
                     }
-
+                    */
 
                     children.child(childId).child("name").setValue(name);
                     children.child(childId).child("id").setValue(childId);
