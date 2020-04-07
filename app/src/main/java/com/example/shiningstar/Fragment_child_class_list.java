@@ -120,15 +120,6 @@ public class Fragment_child_class_list extends Fragment {
                         @Override
                         public void onItemClick(View v, HashMap<String, String> child) {
 
-                            if (adapter == null) {
-                                recyclerView.setVisibility(View.GONE);
-                                nochild.setVisibility(View.VISIBLE);
-
-                            }
-                            else {
-                                recyclerView.setVisibility(View.VISIBLE);
-                                nochild.setVisibility(View.GONE);
-
                                 System.out.println("on list click: "+child.toString());
 
                                 ImageView myPic = (ImageView) v.findViewById(R.id.child_list_pic);
@@ -163,7 +154,7 @@ public class Fragment_child_class_list extends Fragment {
                                         .addToBackStack(null)
                                         .commit();
 
-                            }
+
 
                         }
                     });
@@ -172,8 +163,8 @@ public class Fragment_child_class_list extends Fragment {
                     recyclerView =(androidx.recyclerview.widget.RecyclerView) v.findViewById(R.id.child_class_list);
                     LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
                     recyclerView.setLayoutManager(layoutManager);
-                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), layoutManager.getOrientation());
-                    recyclerView.addItemDecoration(dividerItemDecoration);
+                    //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), layoutManager.getOrientation());
+                    //recyclerView.addItemDecoration(dividerItemDecoration);
                     recyclerView.setHasFixedSize(true);
                     recyclerView.setAdapter(adapter);
 

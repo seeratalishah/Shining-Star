@@ -120,12 +120,15 @@ public class Fragment_activities_child_list extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String AllChildIds = dataSnapshot.child("classes").child(CurrentClassId).child("children").getValue().toString();
+
+                if(!AllChildIds.equals("0"))
+                {
+
                 String[] AllChildIdsArray = AllChildIds.split(",");
                 setChildIdsList(AllChildIdsArray);
                 List<String> AllChildNamesList = new ArrayList<String>();
 
-                if(dataSnapshot.hasChild("children"))
-                {
+
                     for(String id : AllChildIdsArray)
                     {
                         String name = dataSnapshot.child("children").child(id).child("name").getValue().toString();
@@ -133,6 +136,7 @@ public class Fragment_activities_child_list extends Fragment {
                     }
                     setListView(AllChildNamesList);
                 }
+
                 else{
 
                     String[] noclasses = {"There are no children yet"};
