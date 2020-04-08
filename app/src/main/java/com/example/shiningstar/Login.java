@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,6 +31,8 @@ public class Login extends AppCompatActivity {
     EditText name;
     EditText userid;
     EditText password;
+
+    TextView forgotpass;
 
     Button signin;
     Button signup;
@@ -73,6 +76,8 @@ public class Login extends AppCompatActivity {
         parent = findViewById(R.id.parent_radio);
         staff = findViewById(R.id.staff_radio);
 
+        forgotpass = findViewById(R.id.forgotpass);
+
         pb = findViewById(R.id.pb);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -99,6 +104,15 @@ public class Login extends AppCompatActivity {
         });
 
         if(pref.isDataSet()){LoginPressed();}
+
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Login.this, ForgotPass.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

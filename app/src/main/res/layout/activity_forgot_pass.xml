@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".ForgotPass">
 
 
@@ -13,9 +14,10 @@
         android:layout_height="wrap_content"
         android:text="Forgot your password?"
         android:textSize="20dp"
+        android:textColor="#5252CC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.678" />
@@ -24,11 +26,12 @@
         android:id="@+id/forgotpassemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="15"
         android:gravity="center"
         android:hint="Enter your email"
-        android:inputType="textPersonName"
-        android:textColorHint="#000000"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#5252CC"
+        android:backgroundTint="#5252CC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,18 +41,28 @@
     <Button
         android:id="@+id/submitbtn"
         android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:background="@drawable/roundedbtn"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_btnfilled"
         android:text="Submit"
         android:textAllCaps="false"
-        android:textColor="#5252CC"
-        android:textSize="18dp"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.887" />
+        app:layout_constraintVertical_bias="0.915" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="183dp"
+        android:layout_height="209dp"
+        app:layout_constraintBottom_toTopOf="@+id/createnewaccount2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_locked" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,56 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/bg">
+    android:background="#ffffff">
 
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome"
-        android:textColor="#ffffff"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        android:textColor="#5252CC"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+         />
 
     <Button
         android:id="@+id/signinbutton"
-        android:layout_width="307dp"
-        android:layout_height="40dp"
-        android:background="@drawable/roundedbtn"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/welcome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/ic_btnfilled"
         android:text="Sign In"
         android:textAllCaps="false"
-        android:textSize="25dp"
-        android:textColor="#5252CC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71" />
+        android:textColor="#ffffff"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/signupbtn"
-        android:layout_width="307dp"
-        android:layout_height="40dp"
-        android:background="@drawable/roundedbtn"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/signinbutton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ic_btnbordered"
         android:text="Sign Up"
         android:textAllCaps="false"
-        android:textSize="25dp"
         android:textColor="#5252CC"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.596"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
+        android:textSize="15dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
