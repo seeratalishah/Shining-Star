@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -64,6 +65,8 @@ public class Fragment_staff_class_list extends Fragment {
 
     private Toolbar toolbar;
 
+    private ImageButton addClass;
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -100,6 +103,8 @@ public class Fragment_staff_class_list extends Fragment {
         toolbar = (Toolbar) view.findViewById(R.id.toolbar_staff_class_list);
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
+        addClass = view.findViewById(R.id.action_addClass);
+
         CollapsingToolbarLayout myCollaps = (CollapsingToolbarLayout) view.findViewById(R.id.collapsing_toolbar);
         myCollaps.setExpandedTitleTextAppearance(R.style.MyToolbarTheme);
         myCollaps.setCollapsedTitleTextAppearance(R.style.MyToolbarTheme);
@@ -122,6 +127,16 @@ public class Fragment_staff_class_list extends Fragment {
                 }
             }
         });
+
+
+
+        addClass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddNewClass();
+            }
+        });
+
 
         return view;
     }
@@ -230,7 +245,7 @@ public class Fragment_staff_class_list extends Fragment {
 
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
         alert.setTitle("Add new class");
-        alert.setMessage("Enter a valid class code of the class assigned to you");
+        alert.setMessage("Enter class details");
 
 
 

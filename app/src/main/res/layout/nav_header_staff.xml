@@ -14,18 +14,20 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:background="#555555"
+        android:background="@null"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_light" />
+        android:paddingRight="18dp"
+        app:srcCompat="@drawable/ic_user" />
 
     <TextView
         android:id="@+id/name_staff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingLeft="1dp"
         android:text="Android Studio"
         android:textSize="20sp"
         android:textColor="#ffffff"
