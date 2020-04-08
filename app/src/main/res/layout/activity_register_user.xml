@@ -150,7 +150,7 @@
         android:layout_height="25dp"
         android:layout_toRightOf="@+id/alreadyAccount"
         android:background="@drawable/ic_btnbordered"
-        android:text="Signin"
+        android:text="Sign in"
         android:textColor="#5252CC"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/alreadyAccount"
