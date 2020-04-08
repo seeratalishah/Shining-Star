@@ -33,15 +33,7 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editText_addChild"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Enter Child ID"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="-10dp"
-            tools:layout_editor_absoluteY="147dp" />
+
 
         <EditText
             android:id="@+id/childname"

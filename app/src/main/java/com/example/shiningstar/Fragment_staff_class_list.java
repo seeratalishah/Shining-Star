@@ -135,7 +135,7 @@ public class Fragment_staff_class_list extends Fragment {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String AllClasses = dataSnapshot.child("staff").child("class_ids").getValue().toString();
+                String AllClasses = dataSnapshot.child("staff").child(uid).child("class_ids").getValue().toString();
                 if(!AllClasses.equals("0")) {
                     HasClasses = true;
                     String[] myList = AllClasses.split(",");
@@ -252,13 +252,11 @@ public class Fragment_staff_class_list extends Fragment {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
-                            String currClasses = dataSnapshot.child("staff").child("class_ids").getValue().toString();
-
-                            String childrenIDs = dataSnapshot.child("parents").child("children").getValue().toString();
+                            String currClasses = dataSnapshot.child("staff").child(uid).child("class_ids").getValue().toString();
 
                                 if(currClasses.equals("0"))
                                 {
-                                    dataRef.child("staff").child("class_ids").setValue(Classcode + ",");
+                                    dataRef.child("staff").child(uid).child("class_ids").setValue(Classcode + ",");
                                     dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
                                     dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
 
@@ -272,7 +270,7 @@ public class Fragment_staff_class_list extends Fragment {
                                 }
                                 else if(!isClassAssigned(currClasses, Classcode)) {
                                     currClasses += Classcode + ",";
-                                    dataRef.child("staff").child("class_ids").setValue(currClasses);
+                                    dataRef.child("staff").child(uid).child("class_ids").setValue(currClasses);
                                     dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
                                     dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
 

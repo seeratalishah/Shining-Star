@@ -84,7 +84,6 @@ public class ParentAddChild extends Fragment {
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar_parent);
         toolbar.setTitle("Add Child");
 
-        childID = (EditText) v.findViewById(R.id.editText_addChild);
         childName = (EditText) v.findViewById(R.id.childname);
         imageChild = v.findViewById(R.id.imagechild);
         Button addChildButton = (Button) v.findViewById(R.id.button_addChild);
@@ -139,15 +138,15 @@ public class ParentAddChild extends Fragment {
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
 
-        if(childID.getText().toString().isEmpty()){
-            Toast.makeText(getContext(),"Enter Child ID",Toast.LENGTH_SHORT).show();
+        if(childName.getText().toString().isEmpty()){
+            Toast.makeText(getContext(),"Enter Child Name",Toast.LENGTH_SHORT).show();
         }
         else if(imageChild.getDrawable() == null)
         {
             Toast.makeText(getContext(),"Upload Image first",Toast.LENGTH_SHORT).show();
         }
 
-        final String childId = childID.getText().toString();
+        final String actId = db.push().getKey();
         name = childName.getText().toString();
 
         final DatabaseReference parent = db.child("parents");
@@ -157,12 +156,7 @@ public class ParentAddChild extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                String currentChildren = dataSnapshot.child("parents").child("children").getValue().toString();
-
-                String AllClasses = dataSnapshot.child("staff").child("class_ids").getValue().toString();
-
-
-                String[] myList = AllClasses.split(",");
+                String currentChildren = dataSnapshot.child("parents").child(uid).child("children").getValue().toString();
 
 
                 storage = FirebaseStorage.getInstance();
@@ -171,7 +165,7 @@ public class ParentAddChild extends Fragment {
 
                 if(currentChildren.equals("0"))
                 {
-                    parent.child("children").setValue(childId+',');
+                    parent.child(uid).child("children").setValue(actId+',');
 
                     /*
 
@@ -187,16 +181,16 @@ public class ParentAddChild extends Fragment {
                     */
 
 
-                    children.child(childId).child("name").setValue(name);
-                    children.child(childId).child("id").setValue(childId);
-                    children.child(childId).child("pic").setValue(name);
-                    children.child(childId).child("act_ids").setValue(0);
+                    children.child(actId).child("name").setValue(name);
+                    children.child(actId).child("id").setValue(actId);
+                    children.child(actId).child("pic").setValue(name);
+                    children.child(actId).child("act_ids").setValue(0);
                     Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
                     GoBackToChildList();
                 }
-                else if(!isClassAssigned(currentChildren, childId)) {
-                    currentChildren += childId + ",";
-                    parent.child("children").setValue(currentChildren);
+                else if(!isClassAssigned(currentChildren, actId)) {
+                    currentChildren += actId + ",";
+                    parent.child(uid).child("children").setValue(currentChildren);
 
                   /*  if(dataSnapshot.hasChild("classes")){
 
@@ -208,10 +202,10 @@ public class ParentAddChild extends Fragment {
                     }
                     */
 
-                    children.child(childId).child("name").setValue(name);
-                    children.child(childId).child("id").setValue(childId);
-                    children.child(childId).child("pic").setValue(name);
-                    children.child(childId).child("act_ids").setValue(0);
+                    children.child(actId).child("name").setValue(name);
+                    children.child(actId).child("id").setValue(actId);
+                    children.child(actId).child("pic").setValue(name);
+                    children.child(actId).child("act_ids").setValue(0);
                     Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
                     GoBackToChildList();
                 }
