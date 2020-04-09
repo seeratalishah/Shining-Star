@@ -107,6 +107,9 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
             pref.resetData();
             FirebaseAuth.getInstance().signOut();
             Intent i = new Intent(this,MainActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
             finish();
         }
