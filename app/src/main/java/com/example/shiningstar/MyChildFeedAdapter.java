@@ -137,7 +137,7 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 pic.details.setText("Details: "+act.get("details"));
                 pic.location.setText("Location: " + act.get("address"));
                 StorageReference sr = FirebaseStorage.getInstance().getReference();
-                StorageReference picRef = sr.child("PostImages").child(act.get("photo_name"));
+                StorageReference picRef = sr.child("images").child(act.get("photo_name"));
                 Glide.with(pic.itemView.getContext())
                         .using(new FirebaseImageLoader())
                         .load(picRef)
