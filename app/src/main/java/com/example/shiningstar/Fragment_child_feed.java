@@ -117,7 +117,7 @@ public class Fragment_child_feed extends Fragment {
                 break;
 
             case R.id.btn_child_shortcut:
-                StorageReference pic = FirebaseStorage.getInstance().getReference().child("PostImages").child(childPic);
+                StorageReference pic = FirebaseStorage.getInstance().getReference().child("images").child(childPic);
                 Glide.with(getActivity().getApplicationContext()).using(new FirebaseImageLoader())
                         .load(pic)
                         .asBitmap()

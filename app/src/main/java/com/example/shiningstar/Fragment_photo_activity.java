@@ -397,7 +397,6 @@ public class Fragment_photo_activity extends Fragment {
                 if(task.isSuccessful())
                 {
                     progressDialog.dismiss();
-                    Toast.makeText(getActivity(), "Added Photo activity to the feed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
