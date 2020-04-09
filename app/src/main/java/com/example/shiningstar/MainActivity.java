@@ -23,11 +23,17 @@ public class MainActivity extends AppCompatActivity implements Fragment_staff_cl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        PrefManager pref = new PrefManager(this);
+
+        if(pref.isDataSet()){
+            signin(findViewById(R.id.signinbtn));
+        }
+
         signin = findViewById(R.id.signinbutton);
         signup = findViewById(R.id.signupbtn);
 
 
-        signin.setOnClickListener(new View.OnClickListener() {
+       signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,Login.class);
@@ -43,5 +49,9 @@ public class MainActivity extends AppCompatActivity implements Fragment_staff_cl
             }
         });
 
+    }
+
+    private void signin(View viewById) {
+        
     }
 }

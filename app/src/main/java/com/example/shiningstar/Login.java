@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -40,6 +41,8 @@ public class Login extends AppCompatActivity {
     RadioButton admin;
     RadioButton parent;
     RadioButton staff;
+
+    private CheckBox keep_loggedin;
 
     ProgressBar pb;
 
@@ -75,6 +78,8 @@ public class Login extends AppCompatActivity {
         admin = findViewById(R.id.admin_radio);
         parent = findViewById(R.id.parent_radio);
         staff = findViewById(R.id.staff_radio);
+
+        keep_loggedin = findViewById(R.id.keeplogin_chkbox);
 
         forgotpass = findViewById(R.id.forgotpass);
 
@@ -208,6 +213,9 @@ public class Login extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(uid)) {
+                    if(!pref.isDataSet() && keep_loggedin.isChecked()){
+                        pref.setLoginData(email,pass,type);
+                    }
                     startActivity(i);
                     finish();
                 }

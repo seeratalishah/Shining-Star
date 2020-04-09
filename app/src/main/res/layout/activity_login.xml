@@ -56,6 +56,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
+    <CheckBox
+        android:id="@+id/keeplogin_chkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keep me logged in"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup1"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.281" />
+
     <TextView
         android:id="@+id/noAccount"
         android:layout_width="wrap_content"
@@ -102,6 +114,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup1" />
 
+
     <TextView
         android:id="@+id/forgotpass"
         android:layout_width="wrap_content"
@@ -109,14 +122,11 @@
         android:text="Forgot password?"
         android:textColor="#5252CC"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup1"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.318" />
-
-
+        app:layout_constraintBottom_toTopOf="@+id/signupbtn"
+        app:layout_constraintEnd_toEndOf="@+id/signinbtn"
+        app:layout_constraintStart_toStartOf="@+id/signinbtn"
+        app:layout_constraintTop_toBottomOf="@+id/signinbtn"
+        app:layout_constraintVertical_bias="0.081" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
