@@ -66,7 +66,7 @@
         app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.281" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/noAccount"
@@ -97,13 +97,14 @@
         app:layout_constraintTop_toTopOf="@+id/noAccount"
         app:layout_constraintVertical_bias="0.7" />
 
+
     <Button
         android:id="@+id/signinbtn"
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_below="@id/radioGroup1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/ic_btnfilled"
         android:text="Sign In"
         android:textAllCaps="false"
@@ -113,7 +114,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup1" />
-
 
     <TextView
         android:id="@+id/forgotpass"
@@ -126,7 +126,7 @@
         app:layout_constraintEnd_toEndOf="@+id/signinbtn"
         app:layout_constraintStart_toStartOf="@+id/signinbtn"
         app:layout_constraintTop_toBottomOf="@+id/signinbtn"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.345" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="48dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"

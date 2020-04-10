@@ -18,7 +18,9 @@
 
         </activity>
         <activity android:name=".Parent" />
-        <activity android:name=".Admin" />
+        <activity android:name=".Admin" >
+
+        </activity>
         <activity android:name=".ForgotPass" />
         <activity android:name=".MainActivity">
             <intent-filter>
