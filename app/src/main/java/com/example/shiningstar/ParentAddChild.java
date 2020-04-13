@@ -81,8 +81,7 @@ public class ParentAddChild extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_parent_add_child, container, false);
         setHasOptionsMenu(true);
-        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar_parent);
-        toolbar.setTitle("Add Child");
+
 
         childName = (EditText) v.findViewById(R.id.childname);
         imageChild = v.findViewById(R.id.imagechild);
@@ -297,7 +296,6 @@ public class ParentAddChild extends Fragment {
     }
     @Override
     public void onDestroy() {
-        toolbar.setTitle("My Children");
         super.onDestroy();
     }
 }

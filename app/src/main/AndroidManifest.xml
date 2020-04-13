@@ -13,15 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Login"></activity>
+        <activity android:name=".ParentDashboard"></activity>
+        <activity android:name=".Login" />
         <activity android:name=".RegisterUser" />
-        <activity android:name=".Staff" >
-
-        </activity>
+        <activity android:name=".Staff"></activity>
         <activity android:name=".Parent" />
-        <activity android:name=".Admin" >
-
-        </activity>
+        <activity android:name=".Admin"></activity>
         <activity android:name=".ForgotPass" />
         <activity android:name=".MainActivity">
             <intent-filter>

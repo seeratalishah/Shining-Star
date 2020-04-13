@@ -1,6 +1,7 @@
 package com.example.shiningstar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -69,9 +70,12 @@ public class ParentChildList extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_add_child) {
-            getActivity().getSupportFragmentManager().beginTransaction().add(
-                    R.id.content_holder_parent, new ParentAddChild()).addToBackStack(null).commit();
+        if (id == R.id.action_home) {
+            Intent i = new Intent(getContext(),ParentDashboard.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(i);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -83,8 +87,7 @@ public class ParentChildList extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_parent_child_list, container, false);
-        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar_parent);
-        toolbar.setTitle("My Children");
+
         setHasOptionsMenu(true);
 
 

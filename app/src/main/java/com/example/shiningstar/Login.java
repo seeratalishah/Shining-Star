@@ -193,7 +193,7 @@ public class Login extends AppCompatActivity {
         else if (parent.isChecked())
         {
             type = "parents";
-            Intent i = new Intent(this, Parent.class);
+            Intent i = new Intent(this, ParentDashboard.class);
             LoginAs("parents", uid, i);
         }
 

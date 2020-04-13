@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_add_child"
+        android:id="@+id/action_home"
         android:orderInCategory="100"
         android:title="Add Child"
-        android:icon="@drawable/ic_person_add_white_24dp"
+        android:icon="@drawable/ic_home"
         app:showAsAction="always" />
 </menu>
