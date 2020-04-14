@@ -98,7 +98,7 @@ public class ParentChildList extends Fragment {
         adapter = new MyRecyclerViewAdapter();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), layoutManager.getOrientation());
-       recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView.addItemDecoration(dividerItemDecoration);
         //rv.setItemAnimator(new LandingAnimator());
         //rv.getItemAnimator().setAddDuration(1000);
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
@@ -131,7 +131,7 @@ public class ParentChildList extends Fragment {
                 MyFrag.setEnterTransition(enterFade);
 
                 getActivity().getSupportFragmentManager().beginTransaction().addSharedElement(myPic, myPic.getTransitionName())
-                        .replace(R.id.content_holder_parent, MyFrag)
+                        .replace(R.id.parent_dashboard, MyFrag)
                         .addToBackStack(null).commit();
             }
         });

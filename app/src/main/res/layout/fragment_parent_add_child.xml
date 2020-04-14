@@ -16,7 +16,7 @@
         android:layout_width="364dp"
         android:layout_height="536dp"
         android:layout_margin="20dp"
-        android:background="#ffffff"
+        android:background="@drawable/rounded"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,44 +29,58 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="Please enter the child code provided by the teacher to add your child"
             android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
+            android:textSize="15dp"
+            android:layout_marginBottom="10dp"
+            />
 
 
         <EditText
             android:id="@+id/childname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#5252CC"
             android:hint="Child Name"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="-10dp"
-            tools:layout_editor_absoluteY="147dp" />
+            android:textColorHint="#5252CC"
+            android:textSize="15dp" />
 
 
         <ImageButton
             android:id="@+id/imagechild"
-            android:layout_width="match_parent"
+            android:layout_width="286dp"
             android:layout_height="268dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             android:background="@null"
-            android:src="@drawable/blank_image" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_photo" />
 
-        <Button
-            android:id="@+id/button_addChild"
+        <TextView
+            android:id="@+id/noAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:padding="15dp"
-            android:text="Add Child"
-            android:textSize="18sp"
-            android:theme="@style/Widget.AppCompat.Button"
-            tools:layout_editor_absoluteX="142dp"
-            tools:layout_editor_absoluteY="306dp"
-            tools:textAllCaps="false" />
+            android:text="(Tap to Upload)"
+            android:textColor="#5252CC"
+            android:textSize="15dp"
+             />
+
+        <Button
+            android:id="@+id/button_addChild"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/radioGroup1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="52dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_btnfilled"
+            android:text="Add"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
 
     </LinearLayout>
 

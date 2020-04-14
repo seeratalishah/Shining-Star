@@ -291,7 +291,7 @@ public class ParentAddChild extends Fragment {
     private void GoBackToChildList()
     {
         getActivity().getSupportFragmentManager().beginTransaction().replace(
-                R.id.content_holder_parent, new ParentChildList()).addToBackStack(null).commit();
+                R.id.parent_dashboard, new ParentChildList()).addToBackStack(null).commit();
         getFragmentManager().popBackStack(null, getFragmentManager().POP_BACK_STACK_INCLUSIVE);
     }
     @Override

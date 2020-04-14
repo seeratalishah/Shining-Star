@@ -7,10 +7,6 @@
         android:title="Edit Profile"
         android:icon="@android:drawable/ic_menu_edit"
         app:showAsAction="never"/>
-    <item
-        android:id="@+id/btn_child_shortcut"
-        android:title="Create Shortcut"
-        app:showAsAction="never"/>
 
     <item android:title="Share Child Code"
         android:id="@+id/btn_share_child_code"/>

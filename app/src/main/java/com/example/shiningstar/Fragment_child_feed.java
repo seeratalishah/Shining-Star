@@ -116,44 +116,6 @@ public class Fragment_child_feed extends Fragment {
                         .addToBackStack(null).commit();
                 break;
 
-            case R.id.btn_child_shortcut:
-                StorageReference pic = FirebaseStorage.getInstance().getReference().child("images").child(childPic);
-                Glide.with(getActivity().getApplicationContext()).using(new FirebaseImageLoader())
-                        .load(pic)
-                        .asBitmap()
-                        .diskCacheStrategy(DiskCacheStrategy.NONE)
-                        .skipMemoryCache(true)
-                        .into(new SimpleTarget<Bitmap>(100,100) {
-                            @RequiresApi(api = Build.VERSION_CODES.M)
-                            @Override
-                            public void onResourceReady(Bitmap resource, GlideAnimation glideAnimation) {
-                                ShortcutManager shortcutManager = null;
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-                                    shortcutManager = getActivity().getSystemService(ShortcutManager.class);
-                                }
-                                Intent intent =  new Intent(getActivity().getApplicationContext(), Parent.class);
-                                intent.setAction("SHORTCUT");
-                                intent.putExtra("childid",childid);
-                                intent.putExtra("childName",childName);
-                                intent.putExtra("childPic",childPic);
-                                ShortcutInfo shortcut = null;
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-                                    shortcut = new ShortcutInfo.Builder(getActivity().getApplicationContext(), childid)
-                                            .setShortLabel(childName)
-                                            .setLongLabel("Open "+childName+ " Activity Feed")
-                                            .setIcon(Icon.createWithBitmap(resource))
-                                            .setIntent(intent)
-                                            .build();
-                                }
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-                                    if(shortcutManager.getDynamicShortcuts().contains(shortcut)) {
-                                        Toast.makeText(getContext(), childName+"'s Shortcut Already Exist", Toast.LENGTH_SHORT).show();
-                                    } else {
-                                        shortcutManager.addDynamicShortcuts(Arrays.asList(shortcut));
-                                    }
-                                }
-                            }
-                        });
         }
         return true;
     }
@@ -168,9 +130,13 @@ public class Fragment_child_feed extends Fragment {
         childid = getArguments().getString("id");
         childName = getArguments().getString("name");
         childPic = getArguments().getString("picName");
+
+        /*
         int toolbar_id = (getActivity().getClass()== Staff.class) ? R.id.toolbar_staff : R.id.toolbar_parent;
         toolbar = (Toolbar) getActivity().findViewById(toolbar_id);
         toolbar.setTitle("Activity Feed");
+
+         */
 
         Toolbar coll_tool = (Toolbar) v.findViewById(R.id.toolbar_child_feed);
         coll_tool.setTitleTextColor(getResources().getColor(R.color.white));
