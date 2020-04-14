@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -109,9 +110,6 @@ public class Fragment_staff_class_list extends Fragment {
         myCollaps.setExpandedTitleTextAppearance(R.style.MyToolbarTheme);
         myCollaps.setCollapsedTitleTextAppearance(R.style.MyToolbarTheme);
 
-
-        Toolbar toolbar =(Toolbar) getActivity().findViewById(R.id.toolbar_staff);
-        toolbar.setTitle("Classes List");
         ClassListView = (ListView) view.findViewById(R.id.class_list_staff);
 
         GetClassList();
@@ -119,10 +117,12 @@ public class Fragment_staff_class_list extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(HasClasses) {
+
                     String currClassId = AllClassesList.get(position);
                     Fragment classFrag = ClassFragment.newInstance(currClassId);
+                    FragmentTransaction t = getChildFragmentManager().beginTransaction();
                     getFragmentManager().beginTransaction().replace(
-                            R.id.content_holder_staff, classFrag)
+                            R.id.staff_dashboard, classFrag)
                             .addToBackStack(null).commit();
                 }
             }
@@ -133,7 +133,7 @@ public class Fragment_staff_class_list extends Fragment {
         addClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddNewClass();
+                //AddNewClass();
             }
         });
 
@@ -222,116 +222,9 @@ public class Fragment_staff_class_list extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_addClass) {
-            AddNewClass();
+            //AddNewClass();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-
-    private void AddNewClass()
-    {
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        final String uid = firebaseAuth.getCurrentUser().getUid();
-
-        LayoutInflater factory = LayoutInflater.from(getActivity());
-
-
-        final View textEntryView = factory.inflate(R.layout.class_data_layout, null);
-
-        final EditText id = (EditText) textEntryView.findViewById(R.id.classid);
-        final EditText name = (EditText) textEntryView.findViewById(R.id.classname);
-        final EditText room = (EditText) textEntryView.findViewById(R.id.classroom);
-
-        AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
-        alert.setTitle("Add new class");
-        alert.setMessage("Enter class details");
-
-
-
-        alert.setView(textEntryView);
-
-        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-
-                final String Classcode = id.getText().toString();
-                final String Classname = name.getText().toString();
-                final String Classroom = room.getText().toString();
-
-                if(Classcode.isEmpty())
-                    Toast.makeText(getContext(), "Class Code cannot be empty!", Toast.LENGTH_SHORT).show();
-                else
-                {
-                    final DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
-                    dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-
-                            String currClasses = dataSnapshot.child("staff").child(uid).child("class_ids").getValue().toString();
-
-                                if(currClasses.equals("0"))
-                                {
-                                    dataRef.child("staff").child(uid).child("class_ids").setValue(Classcode + ",");
-                                    dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
-                                    dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
-
-                                    dataRef.child("classes").child(Classcode).child("checked_in").setValue(0);
-                                    dataRef.child("classes").child(Classcode).child("checked_out").setValue(0);
-                                    dataRef.child("classes").child(Classcode).child("absent").setValue(0);
-
-                                    dataRef.child("classes").child(Classcode).child("children").setValue(0);
-
-                                    RefreshClassList();
-                                }
-                                else if(!isClassAssigned(currClasses, Classcode)) {
-                                    currClasses += Classcode + ",";
-                                    dataRef.child("staff").child(uid).child("class_ids").setValue(currClasses);
-                                    dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
-                                    dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
-
-                                    dataRef.child("classes").child(Classcode).child("checked_in").setValue(0);
-                                    dataRef.child("classes").child(Classcode).child("checked_out").setValue(0);
-                                    dataRef.child("classes").child(Classcode).child("absent").setValue(0);
-
-
-                                   dataRef.child("classes").child(Classcode).child("children").setValue(0);
-
-                                    Toast.makeText(getContext(), "Your new class has been added", Toast.LENGTH_SHORT).show();
-                                    RefreshClassList();
-                                }
-                                else {
-                                    Toast.makeText(getContext(), "You have been assigned to this class already!", Toast.LENGTH_LONG).show();
-                                }
-
-                        }
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
-                }
-
-            }
-        });
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                // Canceled.
-            }
-        });
-        alert.show();
-    }
-
-
-    private boolean isClassAssigned(String classList, String NewClass)
-    {
-        return classList.contains(NewClass);
-    }
-
-    private void RefreshClassList()
-    {
-        getActivity().getSupportFragmentManager().beginTransaction().replace(
-                R.id.content_holder_staff, new Fragment_staff_class_list()).commit();
-        //getFragmentManager().popBackStack(null, getFragmentManager().POP_BACK_STACK_INCLUSIVE);
     }
 
 
@@ -348,12 +241,7 @@ public class Fragment_staff_class_list extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+
     }
 
     @Override
@@ -376,4 +264,10 @@ public class Fragment_staff_class_list extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
+    public void onFragmentInteraction(Uri uri){
+        //you can leave it empty
+    }
+
 }

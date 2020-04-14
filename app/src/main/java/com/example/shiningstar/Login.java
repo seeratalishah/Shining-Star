@@ -186,7 +186,7 @@ public class Login extends AppCompatActivity {
         if(staff.isChecked())
         {
             type = "staff";
-            Intent i = new Intent(this, Staff.class);
+            Intent i = new Intent(this, StaffDashboard.class);
             LoginAs("staff", uid, i);
         }
 
