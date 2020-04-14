@@ -79,8 +79,9 @@ public class StaffDashboard extends AppCompatActivity {
                 fragmentmanager = getSupportFragmentManager();
                 Fragment_staff_class_list createFrag = new Fragment_staff_class_list();
                 FragmentTransaction trans = fragmentmanager.beginTransaction();
+                trans.remove(createFrag);
                 trans.replace(R.id.staff_dashboard, createFrag);
-                trans.addToBackStack(null);
+                trans.addToBackStack("a");
                 trans.commit();
 
             }
@@ -109,6 +110,7 @@ public class StaffDashboard extends AppCompatActivity {
 
             }
         });
+
 
     }
 

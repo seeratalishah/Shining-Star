@@ -9,7 +9,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -120,10 +119,9 @@ public class Fragment_staff_class_list extends Fragment {
 
                     String currClassId = AllClassesList.get(position);
                     Fragment classFrag = ClassFragment.newInstance(currClassId);
-                    FragmentTransaction t = getChildFragmentManager().beginTransaction();
                     getFragmentManager().beginTransaction().replace(
                             R.id.staff_dashboard, classFrag)
-                            .addToBackStack(null).commit();
+                            .addToBackStack("a").commit();
                 }
             }
         });
