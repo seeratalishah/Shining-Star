@@ -200,7 +200,7 @@ public class Login extends AppCompatActivity {
         else if (admin.isChecked())
         {
             type = "admins";
-            Intent i = new Intent(this, Admin.class);
+            Intent i = new Intent(this, AdminDashboard.class);
             LoginAs("admins", uid, i);
         }
     }
