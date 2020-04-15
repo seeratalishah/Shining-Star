@@ -33,13 +33,10 @@ public class StaffDashboard extends AppCompatActivity {
     Fragment_staff_class_list f = new Fragment_staff_class_list();
 
     TextView name_staff;
-    TextView email_staff;
 
     ImageButton add_class;
     ImageButton view_class;
     ImageButton profile;
-
-    Button logout;
 
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
@@ -52,13 +49,10 @@ public class StaffDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_staff_dashboard);
 
         name_staff = findViewById(R.id.name);
-        email_staff = findViewById(R.id.email);
 
         add_class = findViewById(R.id.add_class_staff);
         view_class = findViewById(R.id.view_class_staff);
         profile = findViewById(R.id.profile_staff);
-
-        logout = findViewById(R.id.logoutbtn);
 
         getData();
 
@@ -91,26 +85,15 @@ public class StaffDashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            }
-        });
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                PrefManager pref = new PrefManager(getApplicationContext());
-                pref.resetData();
-                FirebaseAuth.getInstance().signOut();
-                Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                finish();
+                fragmentmanager = getSupportFragmentManager();
+                StaffProfile createFrag = new StaffProfile();
+                FragmentTransaction trans = fragmentmanager.beginTransaction();
+                trans.replace(R.id.staff_dashboard, createFrag);
+                trans.addToBackStack(null);
+                trans.commit();
 
             }
         });
-
 
     }
 
@@ -132,8 +115,6 @@ public class StaffDashboard extends AppCompatActivity {
 
             }
         });
-
-        email_staff.setText(email_curr);
 
     }
 
