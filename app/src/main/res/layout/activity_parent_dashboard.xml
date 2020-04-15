@@ -1,130 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout android:id="@+id/drawer_layout"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:background="#ffffff"
+    tools:context=".ParentDashboard">
 
 
-    <include
-        layout="@layout/appbar_parent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+    </View>
+
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_parent"
-        app:menu="@menu/drawer_parent"  >
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.366"
+        app:srcCompat="@drawable/ic_user2" />
 
-    </com.google.android.material.navigation.NavigationView>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Majid Ali Khan"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.282"></TextView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/parent_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff"
-        tools:context=".ParentDashboard"
-        >
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="majidalykhan@gmail.com"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintVertical_bias="0.0"></TextView>
 
-        <View
-            android:id="@+id/view"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:background="@drawable/ic_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <Button
+        android:id="@+id/logoutbtn"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ic_btnfilledpink"
+        android:gravity="center"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.943" />
 
-        </View>
+    <ImageButton
+        android:id="@+id/profile_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/logoutbtn"
+        app:layout_constraintEnd_toEndOf="@+id/add_children_parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/view_children_parent"
+        app:srcCompat="@drawable/ic_profileparent" />
+
+    <ImageButton
+        android:id="@+id/add_children_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="44dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/profile_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_addchildrenparent" />
+
+    <ImageButton
+        android:id="@+id/view_children_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/profile_parent"
+        app:layout_constraintEnd_toStartOf="@+id/add_children_parent"
+        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_viewchildrenparent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Child"
+        android:textColor="#1EB2A6"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_children_parent"
+        app:layout_constraintEnd_toEndOf="@+id/view_children_parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/view_children_parent"
+        app:layout_constraintTop_toTopOf="@+id/view_children_parent"
+        app:layout_constraintVertical_bias="0.834"></TextView>
 
 
-        <ImageButton
-            android:id="@+id/add_children_parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="44dp"
-            android:background="@null"
-            app:layout_constraintBottom_toTopOf="@+id/profile_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/ic_addchildrenparent" />
-
-        <ImageButton
-            android:id="@+id/view_children_parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="44dp"
-            android:background="@null"
-            app:layout_constraintBottom_toTopOf="@+id/profile_parent"
-            app:layout_constraintEnd_toStartOf="@+id/add_children_parent"
-            app:layout_constraintHorizontal_bias="0.364"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/ic_viewchildrenparent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="View Child"
-            android:textColor="#1EB2A6"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view_children_parent"
-            app:layout_constraintEnd_toEndOf="@+id/view_children_parent"
-            app:layout_constraintHorizontal_bias="0.481"
-            app:layout_constraintStart_toStartOf="@+id/view_children_parent"
-            app:layout_constraintTop_toTopOf="@+id/view_children_parent"
-            app:layout_constraintVertical_bias="0.834"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Child"
+        android:textColor="#B21F66"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/add_children_parent"
+        app:layout_constraintEnd_toEndOf="@+id/add_children_parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/add_children_parent"
+        app:layout_constraintTop_toTopOf="@+id/add_children_parent"
+        app:layout_constraintVertical_bias="0.834"></TextView>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Child"
-            android:textColor="#B21F66"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/add_children_parent"
-            app:layout_constraintEnd_toEndOf="@+id/add_children_parent"
-            app:layout_constraintHorizontal_bias="0.481"
-            app:layout_constraintStart_toStartOf="@+id/add_children_parent"
-            app:layout_constraintTop_toTopOf="@+id/add_children_parent"
-            app:layout_constraintVertical_bias="0.834"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textColor="#400082"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_parent"
+        app:layout_constraintEnd_toEndOf="@+id/profile_parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/profile_parent"
+        app:layout_constraintTop_toTopOf="@+id/profile_parent"
+        app:layout_constraintVertical_bias="0.908"></TextView>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textColor="#400082"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/profile_parent"
-            app:layout_constraintEnd_toEndOf="@+id/profile_parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="@+id/profile_parent"
-            app:layout_constraintTop_toTopOf="@+id/profile_parent"
-            app:layout_constraintVertical_bias="0.908"></TextView>
-
-        <ImageButton
-            android:id="@+id/profile_parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="56dp"
-            android:background="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_profileparent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.drawerlayout.widget.DrawerLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
