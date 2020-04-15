@@ -15,18 +15,20 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".StaffDashboard"></activity>
         <activity android:name=".ParentDashboard" />
-        <activity android:name=".Login" />
+        <activity android:name=".Login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".RegisterUser" />
         <activity android:name=".Staff" />
         <activity android:name=".Parent" />
         <activity android:name=".Admin" />
         <activity android:name=".ForgotPass" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

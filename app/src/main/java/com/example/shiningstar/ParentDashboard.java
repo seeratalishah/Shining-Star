@@ -23,18 +23,16 @@ public class ParentDashboard extends AppCompatActivity {
 
 
     TextView name_parent;
-    TextView email_parent;
 
     ImageButton add_child;
     ImageButton view_child;
     ImageButton profile;
 
-    Button logout;
-
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
 
     FragmentManager fragmentmanager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +41,10 @@ public class ParentDashboard extends AppCompatActivity {
 
 
         name_parent = findViewById(R.id.name);
-        email_parent = findViewById(R.id.email);
 
         add_child = findViewById(R.id.add_children_parent);
         view_child = findViewById(R.id.view_children_parent);
         profile = findViewById(R.id.profile_parent);
-
-        logout = findViewById(R.id.logoutbtn);
-
 
         getData();
 
@@ -83,29 +77,15 @@ public class ParentDashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            }
-        });
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                PrefManager pref = new PrefManager(getApplicationContext());
-                pref.resetData();
-                FirebaseAuth.getInstance().signOut();
-                Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                finish();
+                fragmentmanager = getSupportFragmentManager();
+                ParentProfile createFrag = new ParentProfile();
+                FragmentTransaction trans = fragmentmanager.beginTransaction();
+                trans.replace(R.id.parent_dashboard, createFrag);
+                trans.addToBackStack(null);
+                trans.commit();
 
             }
         });
-
-
-
-
 
     }
 
@@ -128,8 +108,6 @@ public class ParentDashboard extends AppCompatActivity {
 
             }
         });
-
-        email_parent.setText(email_curr);
 
     }
 
