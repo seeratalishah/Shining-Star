@@ -62,10 +62,8 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
         databaseReference.child("staff").child(uid).child("name").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                TextView nav_username = (TextView) hView.findViewById(R.id.name_staff);
                 String name_small = dataSnapshot.getValue().toString();
                 String name_big = name_small.substring(0, 1).toUpperCase() + name_small.substring(1);
-                nav_username.setText(name_big);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -73,8 +71,6 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
             }
         });
 
-        TextView nav_email = (TextView) hView.findViewById(R.id.email_staff);
-        nav_email.setText(email_curr);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.content_holder_staff,new Fragment_staff_class_list()).commit();
 

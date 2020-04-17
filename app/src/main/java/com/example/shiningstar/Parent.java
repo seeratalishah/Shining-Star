@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.pm.ShortcutManager;
@@ -13,6 +15,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -28,13 +31,21 @@ public class Parent extends AppCompatActivity implements NavigationView.OnNaviga
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
 
+    TextView name_parent;
+
+    ImageButton add_child;
+    ImageButton view_child;
+    ImageButton profile;
+
+    FragmentManager fragmentmanager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_parent);
-        toolbar.setTitle("Shining Star");
+        toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -46,7 +57,67 @@ public class Parent extends AppCompatActivity implements NavigationView.OnNaviga
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        final View hView =  navigationView.getHeaderView(0);
+
+        name_parent = findViewById(R.id.name_welcome);
+        add_child = findViewById(R.id.add_child_parent);
+        view_child = findViewById(R.id.view_child_parent);
+        profile = findViewById(R.id.profile_parent);
+
+        getData();
+
+
+        add_child.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                fragmentmanager = getSupportFragmentManager();
+                ParentAddChild createFrag = new ParentAddChild();
+                FragmentTransaction trans = fragmentmanager.beginTransaction();
+                trans.replace(R.id.content_holder_parent, createFrag);
+                trans.addToBackStack(null);
+                trans.commit();
+
+            }
+        });
+
+        view_child.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                fragmentmanager = getSupportFragmentManager();
+                ParentChildList createFrag = new ParentChildList();
+                FragmentTransaction trans = fragmentmanager.beginTransaction();
+                trans.replace(R.id.content_holder_parent, createFrag);
+                trans.addToBackStack(null);
+                trans.commit();
+
+            }
+        });
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                fragmentmanager = getSupportFragmentManager();
+                ParentProfile createFrag = new ParentProfile();
+                FragmentTransaction trans = fragmentmanager.beginTransaction();
+                trans.replace(R.id.content_holder_parent, createFrag);
+                trans.addToBackStack(null);
+                trans.commit();
+
+            }
+        });
+
+
+
+
+        //getSupportFragmentManager().beginTransaction().replace(R.id.content_holder_parent,new ParentChildList()).commit();
+
+    }
+
+
+    private void getData(){
+
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         String email_curr = firebaseAuth.getCurrentUser().getEmail();
@@ -54,23 +125,19 @@ public class Parent extends AppCompatActivity implements NavigationView.OnNaviga
         databaseReference.child("parents").child(uid).child("name").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                TextView nav_username = (TextView) hView.findViewById(R.id.name_parent);
                 String name_small = dataSnapshot.getValue().toString();
                 String name_big = name_small.substring(0, 1).toUpperCase() + name_small.substring(1);
-                nav_username.setText(name_big);
+                name_parent.setText(name_big);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-        TextView nav_email = (TextView) hView.findViewById(R.id.email_parent);
-        nav_email.setText(email_curr);
-
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_holder_parent,new ParentChildList()).commit();
 
     }
+
+
 
     @Override
     public void onBackPressed() {

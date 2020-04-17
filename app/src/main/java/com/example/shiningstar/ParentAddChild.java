@@ -107,7 +107,7 @@ public class ParentAddChild extends Fragment {
     }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        toolbar.getMenu().clear();
+       // toolbar.getMenu().clear();
         inflater.inflate(R.menu.empty_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
