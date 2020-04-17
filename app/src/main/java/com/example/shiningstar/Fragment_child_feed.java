@@ -131,12 +131,12 @@ public class Fragment_child_feed extends Fragment {
         childName = getArguments().getString("name");
         childPic = getArguments().getString("picName");
 
-        /*
+
         int toolbar_id = (getActivity().getClass()== Staff.class) ? R.id.toolbar_staff : R.id.toolbar_parent;
         toolbar = (Toolbar) getActivity().findViewById(toolbar_id);
         toolbar.setTitle("Activity Feed");
 
-         */
+
 
         Toolbar coll_tool = (Toolbar) v.findViewById(R.id.toolbar_child_feed);
         coll_tool.setTitleTextColor(getResources().getColor(R.color.white));

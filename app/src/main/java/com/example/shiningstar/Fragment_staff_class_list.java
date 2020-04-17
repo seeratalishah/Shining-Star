@@ -120,7 +120,7 @@ public class Fragment_staff_class_list extends Fragment {
                     String currClassId = AllClassesList.get(position);
                     Fragment classFrag = ClassFragment.newInstance(currClassId);
                     getFragmentManager().beginTransaction().replace(
-                            R.id.staff_dashboard, classFrag)
+                            R.id.content_holder_staff, classFrag)
                             .addToBackStack("a").commit();
                 }
             }

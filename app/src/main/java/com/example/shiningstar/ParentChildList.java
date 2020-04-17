@@ -70,12 +70,9 @@ public class ParentChildList extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_home) {
-            Intent i = new Intent(getContext(),ParentDashboard.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(i);
+        if (id == R.id.action_add_child) {
+            getActivity().getSupportFragmentManager().beginTransaction().add(
+                    R.id.content_holder_parent, new ParentAddChild()).addToBackStack(null).commit();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -131,7 +128,7 @@ public class ParentChildList extends Fragment {
                 MyFrag.setEnterTransition(enterFade);
 
                 getActivity().getSupportFragmentManager().beginTransaction().addSharedElement(myPic, myPic.getTransitionName())
-                        .replace(R.id.parent_dashboard, MyFrag)
+                        .replace(R.id.content_holder_parent, MyFrag)
                         .addToBackStack(null).commit();
             }
         });

@@ -186,21 +186,21 @@ public class Login extends AppCompatActivity {
         if(staff.isChecked())
         {
             type = "staff";
-            Intent i = new Intent(this, StaffDashboard.class);
+            Intent i = new Intent(this, Staff.class);
             LoginAs("staff", uid, i);
         }
 
         else if (parent.isChecked())
         {
             type = "parents";
-            Intent i = new Intent(this, ParentDashboard.class);
+            Intent i = new Intent(this, Parent.class);
             LoginAs("parents", uid, i);
         }
 
         else if (admin.isChecked())
         {
             type = "admins";
-            Intent i = new Intent(this, AdminDashboard.class);
+            Intent i = new Intent(this, Admin.class);
             LoginAs("admins", uid, i);
         }
     }

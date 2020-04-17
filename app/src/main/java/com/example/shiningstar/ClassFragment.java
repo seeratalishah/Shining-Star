@@ -75,7 +75,7 @@ public class ClassFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_class, container, false);
-
+        toolbar =(Toolbar) getActivity().findViewById(R.id.toolbar_staff);
         setHasOptionsMenu(true);
         classid = getArguments().getString("classId");
         ViewPager pager = (ViewPager) v.findViewById(R.id.class_viewpager);
