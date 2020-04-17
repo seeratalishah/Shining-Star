@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_addclassstaff" />
+        app:srcCompat="@drawable/ic_addroomstaff" />
 
     <ImageButton
         android:id="@+id/view_class_staff"
@@ -99,12 +99,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_viewclassstaff" />
+        app:srcCompat="@drawable/ic_viewroomstaff" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Class"
+        android:text="View Rooms"
         android:textColor="#323232"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/view_class_staff"
@@ -118,7 +118,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Class"
+        android:text="Add Rooms"
         android:textColor="#17B978"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/add_class_staff"
