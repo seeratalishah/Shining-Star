@@ -47,7 +47,7 @@ public class ClassFragment extends Fragment {
             R.layout.fragment_activities_grid
     };
     private String[] titles = new String[]{
-            "Students", "Attendance", "Activities"
+            "Children", "Attendance", "Activities"
     };
     private ViewPager.PageTransformer[] transformers = new ViewPager.PageTransformer[]{
             new CubeOutTransformer(), new AccordionTransformer(),new TabletTransformer()

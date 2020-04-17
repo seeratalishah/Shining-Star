@@ -17,7 +17,7 @@
             android:layout_gravity="top"
             android:layout_marginTop="5dp"
             android:layout_marginStart="10dp"
-            app:srcCompat="@drawable/icon_food_plain" />
+            android:background="@drawable/ic_foodactivity" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -19,10 +19,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Tag the child"
+            android:textColor="#1E56A0"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textSize="40sp"
-            android:textStyle="bold|italic" />
+            android:textSize="30dp"
+            />
 
         <ListView
             android:id="@+id/currclass_childList"
@@ -33,9 +34,12 @@
 
     <Button
         android:id="@+id/button_Next"
-        android:theme="@style/Widget.AppCompat.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Next >" />
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_btnfilledblue"
+        android:text="Next"
+        android:textColor="#ffffff"/>
 
 </LinearLayout>

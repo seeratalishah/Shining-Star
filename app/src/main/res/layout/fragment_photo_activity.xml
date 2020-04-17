@@ -20,7 +20,7 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                app:srcCompat="@drawable/icon_photo_plain"
+                android:background="@drawable/ic_photoactivity"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
@@ -61,8 +61,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Tagged Kids :"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        />
 
                     <TextView
                         android:id="@+id/Photo_taggedKids"
@@ -87,7 +88,7 @@
                         android:layout_height="270dp"
                         android:layout_weight="1"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/blank_image" />
+                        app:srcCompat="@drawable/ic_photo" />
                 </LinearLayout>
 
 
@@ -105,7 +106,8 @@
                         android:layout_marginRight="20dp"
                         android:text="Location :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary"
+                        />
 
                     <TextView
                         android:id="@+id/Photo_locationTV"
@@ -131,7 +133,7 @@
                         android:layout_weight="1"
                         android:text="Description :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary"/>
 
                     <EditText
                         android:id="@+id/Photo_Description"
@@ -157,7 +159,7 @@
                         android:layout_weight="1"
                         android:text="What time? : "
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <RadioGroup
                         android:id="@+id/Photo_timegroup"
@@ -202,7 +204,7 @@
                         android:paddingStart="20dp"
                         android:text="Time : "
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <EditText
                         android:id="@+id/Photo_hours"
@@ -238,10 +240,12 @@
 
                 <Button
                     android:id="@+id/Photo_PostButton"
-                    android:theme="@style/Widget.AppCompat.Button"
-                    android:padding="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_btnfilledblue"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
                     android:layout_weight="1"

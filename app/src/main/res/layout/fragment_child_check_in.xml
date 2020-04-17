@@ -25,26 +25,31 @@
 
         <Button
             android:id="@+id/btn_checkin"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
             android:text="IN"
-            android:theme="@style/Widget.AppCompat.Button" />
+            android:textColor="#ffffff"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_btnfilledblue" />
 
         <Button
             android:id="@+id/btn_checkout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
-            android:theme="@style/Widget.AppCompat.Button"
+            android:background="@drawable/ic_btnfilledblue"
+            android:textColor="#ffffff"
+            android:layout_marginRight="10dp"
             android:text="OUT"/>
 
         <Button
             android:id="@+id/btn_absent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
             android:layout_weight="1"
-            android:theme="@style/Widget.AppCompat.Button"
+            android:background="@drawable/ic_btnfilledblue"
+            android:textColor="#ffffff"
             android:text="Absent" />
     </LinearLayout>
 

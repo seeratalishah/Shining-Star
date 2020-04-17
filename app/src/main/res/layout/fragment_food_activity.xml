@@ -24,7 +24,7 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_food_plain" />
+                android:background="@drawable/ic_foodactivity" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -64,7 +64,7 @@
                         android:layout_weight="1"
                         android:text="Tagged Kids :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <TextView
                         android:id="@+id/Food_taggedKids"
@@ -91,7 +91,7 @@
                         android:layout_weight="1"
                         android:text="Type of meal :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <Spinner
                         android:id="@+id/Food_spinner_foodType"
@@ -115,7 +115,7 @@
                         android:layout_weight="1"
                         android:text="What Food? :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <EditText
                         android:id="@+id/Food_WhatFood"
@@ -140,7 +140,7 @@
                         android:layout_weight="1"
                         android:text="Ingredients :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <EditText
                         android:id="@+id/Food_Ingredients"
@@ -167,7 +167,7 @@
                         android:layout_weight="1"
                         android:text="What time? : "
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <RadioGroup
                         android:id="@+id/Food_timegroup"
@@ -208,7 +208,7 @@
                         android:layout_height="wrap_content"
                         android:text="Time : "
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <EditText
                         android:id="@+id/Food_hours"
@@ -244,11 +244,12 @@
 
                 <Button
                     android:id="@+id/Food_AddButton"
-                    android:theme="@style/Widget.AppCompat.Button"
-                    android:padding="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/ic_btnfilledblue"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:text="Add Event" />
             </LinearLayout>

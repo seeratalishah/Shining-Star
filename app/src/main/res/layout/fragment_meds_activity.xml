@@ -23,7 +23,7 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_med_plain" />
+                android:background="@drawable/ic_medsactivity" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -62,7 +62,7 @@
                         android:layout_weight="1"
                         android:text="Tagged Kids :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary"  />
 
                     <TextView
                         android:id="@+id/Meds_taggedKids"
@@ -89,7 +89,7 @@
                         android:text="Medicine Name :"
                         android:layout_weight="1"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary"  />
 
                     <EditText
                         android:id="@+id/Meds_MedName"
@@ -111,9 +111,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="         Symptoms :"
+                        android:text="Symptoms :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary"  />
 
                     <EditText
                         android:id="@+id/Meds_Symptoms"
@@ -138,7 +138,7 @@
                         android:layout_gravity="center"
                         android:text="What time? :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary"  />
 
                     <RadioGroup
                         android:id="@+id/Meds_timegroup"
@@ -179,7 +179,7 @@
                         android:layout_height="wrap_content"
                         android:text="Time : "
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary"  />
 
                     <EditText
                         android:id="@+id/Meds_hours"
@@ -215,11 +215,12 @@
 
                 <Button
                     android:id="@+id/Meds_AddPost"
-                    android:theme="@style/Widget.AppCompat.Button"
-                    android:padding="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/ic_btnfilledblue"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:text="Add Event" />
             </LinearLayout>

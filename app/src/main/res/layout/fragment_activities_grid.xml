@@ -1,100 +1,179 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.akhil.schooldiaries.Fragment_ActivitiesGrid">
+    android:background="#ffffff">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff"
-        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Nap"
+        android:textColor="#323232"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgBtn_Nap"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="@+id/imgBtn_Nap"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtn_Nap"></TextView>
 
-            <ImageButton
-                android:id="@+id/imgBtn_photo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_photo" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Note"
+        android:textColor="#323232"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgBtn_Note"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="@+id/imgBtn_Note"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtn_Note"></TextView>
 
-            <ImageButton
-                android:id="@+id/imgBtn_Activities"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_activity" />
+    <ImageButton
+        android:id="@+id/imgBtn_Activities"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087"
+        app:srcCompat="@drawable/ic_customactivity" />
 
-            <ImageButton
-                android:id="@+id/imgBtn_Food"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:elevation="0dp"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_food" />
+    <ImageButton
+        android:id="@+id/imgBtn_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09"
+        app:srcCompat="@drawable/ic_photoactivity" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_Nap"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/ic_napactivity" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_Note"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.871"
+        app:srcCompat="@drawable/ic_noteactivity" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_Meds"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.464"
+        app:srcCompat="@drawable/ic_medsactivity" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_Food"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_light"
+        android:elevation="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.462"
+        app:srcCompat="@drawable/ic_foodactivity" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Food"
+        android:textColor="#323232"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgBtn_Food"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toStartOf="@+id/imgBtn_Food"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtn_Food"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom Activity"
+        android:textColor="#323232"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgBtn_Activities"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imgBtn_Activities"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtn_Activities"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Medicine"
+        android:textColor="#323232"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgBtn_Meds"
+        app:layout_constraintHorizontal_bias="0.641"
+        app:layout_constraintStart_toStartOf="@+id/imgBtn_Meds"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtn_Meds"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photo"
+        android:textColor="#323232"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgBtn_photo"
+        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintStart_toStartOf="@+id/imgBtn_photo"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtn_photo"></TextView>
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/imgBtn_Nap"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_nap" />
-
-            <ImageButton
-                android:id="@+id/imgBtn_Meds"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_med" />
-
-
-            <ImageButton
-                android:id="@+id/imgBtn_Note"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@android:color/background_light"
-                android:scaleType="fitCenter"
-                android:visibility="invisible"
-                android:clickable="false"
-                app:srcCompat="@drawable/icon_note" />
-
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

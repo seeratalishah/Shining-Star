@@ -25,7 +25,7 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_activity_plain" />
+                android:background="@drawable/ic_customactivity" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -64,7 +64,7 @@
                         android:layout_weight="1"
                         android:text="Tagged Kids :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <TextView
                         android:id="@+id/Act_taggedKids"
@@ -91,7 +91,7 @@
                         android:layout_weight="1"
                         android:text="Activity Name :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <EditText
                         android:id="@+id/CustomAct_Name"
@@ -116,7 +116,7 @@
                         android:layout_weight="1"
                         android:text="Activity Details :"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <EditText
                         android:id="@+id/CustomAct_Details"
@@ -143,7 +143,7 @@
                         android:layout_weight="1"
                         android:text="What time? : "
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <RadioGroup
                         android:id="@+id/Act_timegroup"
@@ -184,7 +184,7 @@
                         android:layout_height="wrap_content"
                         android:text="Time : "
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textColor="@color/colorPrimary" />
 
                     <EditText
                         android:id="@+id/Act_hours"
@@ -220,12 +220,13 @@
 
                 <Button
                     android:id="@+id/button_AddCustomActivity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/ic_btnfilledblue"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="200dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
-                    android:padding="15dp"
-                    android:theme="@style/Widget.AppCompat.Button"
                     android:text="Add Activity" />
             </LinearLayout>
         </ScrollView>

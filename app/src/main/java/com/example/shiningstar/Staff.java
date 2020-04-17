@@ -48,8 +48,6 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
 
     FragmentManager fragmentmanager;
 
-    private static String email_curr, uid;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -24,7 +24,7 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/icon_note_plain" />
+                android:background="@drawable/ic_noteactivity" />
 
             <TextView
                 android:id="@+id/textView754"
@@ -50,7 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Your Note :" />
+                android:text="Your Note :"
+                android:textColor="@color/colorPrimary"/>
 
             <EditText
                 android:id="@+id/editText3"
@@ -65,11 +66,14 @@
 
         <Button
             android:id="@+id/button3"
-            android:theme="@style/Widget.AppCompat.Button"
-            android:padding="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@drawable/ic_btnfilledblue"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:layout_marginTop="15dp"
+
+            android:layout_width="200dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
-            android:text="Add NOtes" />
+            android:text="Add Notes" />
     </LinearLayout>
 </FrameLayout>
