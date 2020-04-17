@@ -9,4 +9,139 @@
     tools:context=".Staff"
     tools:showIn="@layout/appbar_staff">
 
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_backgroundstaff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </View>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.123"
+        app:srcCompat="@drawable/ic_user2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Welcome"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"></TextView>
+
+    <TextView
+        android:id="@+id/name_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="M"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"></TextView>
+
+    <ImageButton
+        android:id="@+id/profile_staff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="92dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/add_class_staff"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/view_class_staff"
+        app:srcCompat="@drawable/ic_profstaff" />
+
+    <ImageButton
+        android:id="@+id/add_class_staff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="44dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/profile_staff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_addclassstaff" />
+
+    <ImageButton
+        android:id="@+id/view_class_staff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/profile_staff"
+        app:layout_constraintEnd_toStartOf="@+id/add_class_staff"
+        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_viewclassstaff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Class"
+        android:textColor="#323232"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_class_staff"
+        app:layout_constraintEnd_toEndOf="@+id/view_class_staff"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/view_class_staff"
+        app:layout_constraintTop_toTopOf="@+id/view_class_staff"
+        app:layout_constraintVertical_bias="0.834"></TextView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Class"
+        android:textColor="#17B978"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/add_class_staff"
+        app:layout_constraintEnd_toEndOf="@+id/add_class_staff"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/add_class_staff"
+        app:layout_constraintTop_toTopOf="@+id/add_class_staff"
+        app:layout_constraintVertical_bias="0.834"></TextView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textColor="#005792"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_staff"
+        app:layout_constraintEnd_toEndOf="@+id/profile_staff"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/profile_staff"
+        app:layout_constraintTop_toTopOf="@+id/profile_staff"
+        app:layout_constraintVertical_bias="0.908"></TextView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

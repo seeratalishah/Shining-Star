@@ -103,8 +103,6 @@ public class Fragment_staff_class_list extends Fragment {
         toolbar = (Toolbar) view.findViewById(R.id.toolbar_staff_class_list);
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
-        addClass = view.findViewById(R.id.action_addClass);
-
         CollapsingToolbarLayout myCollaps = (CollapsingToolbarLayout) view.findViewById(R.id.collapsing_toolbar);
         myCollaps.setExpandedTitleTextAppearance(R.style.MyToolbarTheme);
         myCollaps.setCollapsedTitleTextAppearance(R.style.MyToolbarTheme);
@@ -123,15 +121,6 @@ public class Fragment_staff_class_list extends Fragment {
                             R.id.content_holder_staff, classFrag)
                             .addToBackStack("a").commit();
                 }
-            }
-        });
-
-
-
-        addClass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //AddNewClass();
             }
         });
 
@@ -219,9 +208,6 @@ public class Fragment_staff_class_list extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_addClass) {
-            //AddNewClass();
-        }
         return super.onOptionsItemSelected(item);
     }
 
