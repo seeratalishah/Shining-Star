@@ -37,7 +37,8 @@
                 android:layout_weight="1"
                 android:text="Act Name"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textColor="@color/colorPrimary"
+                android:layout_marginLeft="5dp"/>
 
             <TextView
                 android:id="@+id/custom_act_time_and_class"

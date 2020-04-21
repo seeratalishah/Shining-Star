@@ -36,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:text="Attendance Type"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textColor="@color/colorPrimary"
+                android:layout_marginLeft="5dp"/>
 
             <TextView
                 android:id="@+id/attendance_class"

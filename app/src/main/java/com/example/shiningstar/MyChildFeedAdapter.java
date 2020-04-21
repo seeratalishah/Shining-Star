@@ -102,7 +102,7 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 if(act.get("name").equalsIgnoreCase("absent")){
                     atd_holder.atd_img.setImageResource(R.drawable.x);
                 } else {
-                    atd_holder.atd_img.setImageResource(R.drawable.check);
+                    atd_holder.atd_img.setImageResource(R.drawable.ic_attendance);
                 }
                 atd_holder.atd_type.setText(act.get("name"));
                 atd_holder.atd_time.setText(act.get("time"));

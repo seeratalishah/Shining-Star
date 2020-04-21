@@ -36,7 +36,8 @@
                     android:layout_weight="1"
                     android:text="Photo"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginLeft="5dp"/>
 
                 <TextView
                     android:id="@+id/photo_time_class"
