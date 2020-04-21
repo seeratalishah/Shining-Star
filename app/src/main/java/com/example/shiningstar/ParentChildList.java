@@ -70,11 +70,7 @@ public class ParentChildList extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_add_child) {
-            getActivity().getSupportFragmentManager().beginTransaction().add(
-                    R.id.content_holder_parent, new ParentAddChild()).addToBackStack(null).commit();
-            return true;
-        }
+
         return super.onOptionsItemSelected(item);
     }
 

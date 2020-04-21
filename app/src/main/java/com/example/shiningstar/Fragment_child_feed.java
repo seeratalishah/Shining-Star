@@ -93,7 +93,7 @@ public class Fragment_child_feed extends Fragment {
         if (getActivity().getClass() == Parent.class) {
             inflater.inflate(R.menu.child_feed_menu_parent, menu);
         } else {
-            inflater.inflate(R.menu.child_feed_menu, menu);
+           // inflater.inflate(R.menu.child_feed_menu, menu);
         }
         super.onCreateOptionsMenu(menu, inflater);
     }

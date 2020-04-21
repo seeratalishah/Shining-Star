@@ -28,9 +28,10 @@
             android:layout_height="wrap_content"
             android:text="Your child code is"
             android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:layout_marginBottom="10dp"
-            android:textStyle="bold" />
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"
