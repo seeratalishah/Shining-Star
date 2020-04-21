@@ -52,6 +52,7 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             case "Nap": return 4;
             case "Meds": return 5;
             case "Photo": return 6;
+            case "Note": return 7;
         }
         return 0;
     }
@@ -85,6 +86,9 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             case 6:
                 v = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_card_photo,parent,false);
                 return new PicActHolder(v);
+            case 7:
+                v = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_card_note,parent,false);
+                return new NoteActHolder(v);
         }
         return null;
     }
@@ -144,6 +148,10 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                         .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .skipMemoryCache(true)
                         .into(pic.pic);
+            case 7: //Note
+                NoteActHolder note = (NoteActHolder)holder;
+                note.note_details.setText("Note: "+act.get("note") );
+                break;
         }
 
     }
@@ -233,6 +241,14 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             time_class = (TextView)v.findViewById(R.id.med_time_and_class);
             med = (TextView)v.findViewById(R.id.med_name);
             symptoms =(TextView)v.findViewById(R.id.med_symptoms);
+        }
+    }
+
+    static class NoteActHolder extends RecyclerView.ViewHolder{
+        private TextView note_details;
+        public NoteActHolder(View v){
+            super(v);
+            note_details = (TextView)v.findViewById(R.id.note_details);
         }
     }
 

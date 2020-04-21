@@ -182,14 +182,6 @@ public class Fragment_child_feed extends Fragment {
                             .skipMemoryCache(true)
                             .into(propic);
                 }
-
-                db.child("activities").child(uid).child("type").child("attendance").setValue(0);
-                db.child("activities").child(uid).child("type").child("CustomActivity").setValue(0);
-                db.child("activities").child(uid).child("type").child("Food").setValue(0);
-                db.child("activities").child(uid).child("type").child("Nap").setValue(0);
-                db.child("activities").child(uid).child("type").child("Meds").setValue(0);
-                db.child("activities").child(uid).child("type").child("Photo").setValue(0);
-
             }
 
             @Override
@@ -251,6 +243,9 @@ public class Fragment_child_feed extends Fragment {
                             break;
                         case "Photo":
                             adapter.addAct(getPicAct(dataSnapshot));
+                            break;
+                        case "Note":
+                            adapter.addAct(getNoteAct(dataSnapshot));
                             break;
                         default: break;
                     }
@@ -324,6 +319,15 @@ public class Fragment_child_feed extends Fragment {
         act.put("details",act_node.child("description").getValue().toString());
         act.put("photo_name",act_node.child("photo_name").getValue().toString());
         act.put("address",act_node.child("address").getValue().toString());
+        return act;
+    }
+
+    private HashMap<String,String> getNoteAct(DataSnapshot act_node){
+        HashMap<String,String> act = new HashMap<>();
+        act.put("type",act_node.child("type").getValue().toString());
+        act.put("class",act_node.child("class").getValue().toString());
+        act.put("childnames",act_node.child("childnames").getValue().toString());
+        act.put("note",act_node.child("note").getValue().toString());
         return act;
     }
 

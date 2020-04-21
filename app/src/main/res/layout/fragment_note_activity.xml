@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="Fragment_note_activity">
 
@@ -54,7 +55,7 @@
                 android:textColor="@color/colorPrimary"/>
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/note_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -65,7 +66,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/add_note"
             android:background="@drawable/ic_btnfilledblue"
             android:textColor="#ffffff"
             android:textSize="15dp"
