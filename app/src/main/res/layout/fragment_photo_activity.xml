@@ -62,7 +62,7 @@
                         android:layout_weight="1"
                         android:text="Tagged Kids :"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         />
 
                     <TextView
@@ -73,7 +73,7 @@
                         android:ems="10"
                         android:paddingLeft="2dp"
                         android:text="TextView"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textStyle="italic" />
                 </LinearLayout>
 
@@ -105,7 +105,7 @@
                         android:layout_weight="1"
                         android:layout_marginRight="20dp"
                         android:text="Location :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"
                         />
 
@@ -132,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Description :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"/>
 
                     <EditText
@@ -158,7 +158,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:text="What time? : "
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary" />
 
                     <RadioGroup
@@ -203,7 +203,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="20dp"
                         android:text="Time : "
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary" />
 
                     <EditText

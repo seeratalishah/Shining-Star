@@ -93,7 +93,7 @@ public class Fragment_child_feed extends Fragment {
         if (getActivity().getClass() == Parent.class) {
             inflater.inflate(R.menu.child_feed_menu_parent, menu);
         } else {
-           // inflater.inflate(R.menu.child_feed_menu, menu);
+           inflater.inflate(R.menu.child_feed_menu, menu);
         }
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -102,21 +102,40 @@ public class Fragment_child_feed extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int container = (getActivity().getClass()== Staff.class) ? R.id.content_holder_staff : R.id.content_holder_parent;
-        switch (item.getItemId()) {
-            case R.id.btn_child_profile_edit:
-                //Toast.makeText(getContext(),"Edit pressed",Toast.LENGTH_LONG).show();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(container,Fragment_child_profile.newInstance(childid,childName))
-                        .addToBackStack(null).commit();
-                break;
 
-            case R.id.btn_share_child_code:
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .add(container, ShareChildCode.newInstance(childid,childName))
-                        .addToBackStack(null).commit();
-                break;
+
+        if (getActivity().getClass() == Parent.class) {
+            switch (item.getItemId()) {
+                case R.id.btn_child_profile_edit:
+                    //Toast.makeText(getContext(),"Edit pressed",Toast.LENGTH_LONG).show();
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(container,Fragment_child_profile.newInstance(childid,childName))
+                            .addToBackStack(null).commit();
+                    break;
+
+                case R.id.btn_share_child_code:
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .add(container, ShareChildCode.newInstance(childid,childName))
+                            .addToBackStack(null).commit();
+                    break;
+
+            }
+        }
+        else if(getActivity().getClass() == Staff.class){
+
+            switch (item.getItemId()) {
+                case R.id.btn_child_profile_view:
+                    //Toast.makeText(getContext(),"Edit pressed",Toast.LENGTH_LONG).show();
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(container,ChildProfileStaff.newInstance(childid,childName))
+                            .addToBackStack(null).commit();
+                    break;
+
+            }
 
         }
+
+
         return true;
     }
 

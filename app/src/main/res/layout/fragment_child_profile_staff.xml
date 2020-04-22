@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".Fragment_child_profile">
+        tools:context=".ChildProfileStaff">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -33,20 +33,24 @@
             android:textColor="@color/colorPrimary"
             android:textSize="18dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/et_childName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Name"
-            android:inputType="textPersonName" />
-        <EditText
+            android:inputType="textPersonName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"/>
+        <TextView
             android:id="@+id/et_childDOB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Date of Birth"
-            android:inputType="date" />
+            android:inputType="date"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"/>
 
 
         <TextView
@@ -57,21 +61,25 @@
             android:textColor="@color/colorPrimary"
             android:textSize="18dp" />
 
-        <EditText
+        <TextView
             android:id="@+id/et_childParentName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Parent Name"
-            android:inputType="textPersonName" />
+            android:layout_marginLeft="10dp"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="20dp"/>
 
-        <EditText
+        <TextView
             android:id="@+id/et_childParentNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Phone Number"
-            android:inputType="phone" />
+            android:layout_marginLeft="10dp"
+            android:inputType="phone"
+            android:layout_marginBottom="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -79,53 +87,37 @@
             android:padding="10dp"
             android:text="Health Details"
             android:textColor="@color/colorPrimary"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:layout_marginBottom="20dp"/>
 
-        <EditText
+        <TextView
             android:id="@+id/et_childMeds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Medication"
-            android:inputType="text" />
-        <EditText
+            android:inputType="text"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"/>
+        <TextView
             android:id="@+id/et_childAllergy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Allergies"
-            android:inputType="text" />
+            android:inputType="text"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"
+            />
 
-        <EditText
+        <TextView
             android:id="@+id/et_childNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Notes"
-            android:inputType="text" />
-
-        <Button
-            android:id="@+id/btn_child_profile_save"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:text="Save Profile"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:background="@drawable/ic_btnfilledblue"
-            android:layout_marginBottom="10dp"
-            android:textSize="12dp" />
-
-        <Button
-            android:id="@+id/btn_child_profile_delete"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:text="Delete Child Profile"
-            android:background="@drawable/ic_btnborderedblue"
-            android:layout_gravity="center"
-            android:theme="@style/Widget.AppCompat.Button"
-            android:textAllCaps="false"
-            android:textSize="18sp" />
-
+            android:inputType="text"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="20dp"/>
     </LinearLayout>
 </ScrollView>

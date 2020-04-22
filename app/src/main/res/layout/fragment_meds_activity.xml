@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Tagged Kids :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"  />
 
                     <TextView
@@ -72,7 +72,7 @@
                         android:text="TextView"
                         android:ems="10"
                         android:paddingLeft="2dp"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textStyle="italic" />
                 </LinearLayout>
 
@@ -88,7 +88,7 @@
                         android:layout_height="wrap_content"
                         android:text="Medicine Name :"
                         android:layout_weight="1"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"  />
 
                     <EditText
@@ -112,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Symptoms :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"  />
 
                     <EditText
@@ -137,7 +137,7 @@
                         android:layout_weight="1"
                         android:layout_gravity="center"
                         android:text="What time? :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"  />
 
                     <RadioGroup
@@ -178,7 +178,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Time : "
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"  />
 
                     <EditText

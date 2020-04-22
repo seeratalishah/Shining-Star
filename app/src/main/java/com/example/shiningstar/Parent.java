@@ -45,7 +45,7 @@ public class Parent extends AppCompatActivity implements NavigationView.OnNaviga
         setContentView(R.layout.activity_parent);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_parent);
-        toolbar.setTitle("Home");
+        toolbar.setTitle("Parent");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -60,7 +60,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Tagged Kids :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary" />
 
                     <TextView
@@ -71,7 +71,7 @@
                         android:paddingLeft="2dp"
                         android:text="TextView"
                         android:ems="9"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textStyle="italic" />
                 </LinearLayout>
 
@@ -88,7 +88,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:text="From when? :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"  />
 
 
@@ -145,7 +145,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:text="To when? :     "
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"  />
 
 
@@ -201,7 +201,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Details :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary"  />
 
                     <EditText

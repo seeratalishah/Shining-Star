@@ -63,7 +63,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Tagged Kids :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary" />
 
                     <TextView
@@ -74,7 +74,7 @@
                         android:paddingLeft="2dp"
                         android:text="TextView"
                         android:ems="11"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textStyle="italic" />
                 </LinearLayout>
 
@@ -90,7 +90,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Type of meal :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary" />
 
                     <Spinner
@@ -114,7 +114,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="What Food? :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary" />
 
                     <EditText
@@ -139,7 +139,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Ingredients :"
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary" />
 
                     <EditText
@@ -166,7 +166,7 @@
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:text="What time? : "
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary" />
 
                     <RadioGroup
@@ -207,7 +207,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Time : "
-                        android:textSize="16sp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimary" />
 
                     <EditText

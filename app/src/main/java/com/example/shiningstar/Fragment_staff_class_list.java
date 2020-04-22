@@ -158,7 +158,7 @@ public class Fragment_staff_class_list extends Fragment {
                 else
                 {
                     HasClasses = false;
-                    String[] noclasses = {"You are not assigned to any class yet"};
+                    String[] noclasses = {"There are no rooms yet"};
                     ListAdapter myListAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, noclasses);
                     ClassListView.setAdapter(myListAdapter);
                 }

@@ -54,7 +54,7 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
         setContentView(R.layout.activity_staff);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_staff);
-        toolbar.setTitle("Home");
+        toolbar.setTitle("Staff");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -158,8 +158,8 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
         final EditText room = (EditText) textEntryView.findViewById(R.id.classroom);
 
         AlertDialog.Builder alert = new AlertDialog.Builder(Staff.this);
-        alert.setTitle("Add new class");
-        alert.setMessage("Enter class details");
+        alert.setTitle("Add new room");
+        alert.setMessage("Enter room details");
 
 
 

@@ -259,7 +259,7 @@ public class Fragment_child_profile extends Fragment {
             db.child(childid).child("pic").setValue("");
             db.child(childid).child("pic").setValue(ImageName);
 
-            StorageReference storagePref = FirebaseStorage.getInstance().getReference().child("PostImages").child(ImageName);
+            StorageReference storagePref = FirebaseStorage.getInstance().getReference().child("images").child(ImageName);
             storagePref.delete();
             storagePref.putFile(CurrImageURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                 @Override
