@@ -27,6 +27,7 @@ public class MyMessagingService extends FirebaseMessagingService {
         Notification builder =new Notification.Builder(this)
                 .setSmallIcon(R.drawable.shiningggg)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.shiningggg))
+                .setContentTitle(title)
                 .setContentText(message)
                 .setChannelId("Notify")
                 .setOngoing(false)
