@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Login extends AppCompatActivity {
 
@@ -117,7 +118,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
     }
 
     public void LoginPressed() {
@@ -184,6 +184,7 @@ public class Login extends AppCompatActivity {
         {
             type = "staff";
             Intent i = new Intent(this, Staff.class);
+            userNotificationSubscription();
             LoginAs("staff", uid, i);
         }
 
@@ -191,7 +192,10 @@ public class Login extends AppCompatActivity {
         {
             type = "parents";
             Intent i = new Intent(this, Parent.class);
+            userNotificationSubscription();
             LoginAs("parents", uid, i);
+
+
         }
 
     }
@@ -223,8 +227,6 @@ public class Login extends AppCompatActivity {
         });
     }
 
-
-
     private void validate(){
         if(!EmailValidator.getInstance().validate(userid.getText().toString().trim())){
             userid.setError("Invalid email address");
@@ -237,4 +239,23 @@ public class Login extends AppCompatActivity {
             LoginPressed();
         }
     }
+
+
+
+    private void userNotificationSubscription(){
+
+        FirebaseMessaging.getInstance().subscribeToTopic("users")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Success";
+                        if (!task.isSuccessful()) {
+                            msg = "Failed";
+                        }
+                        System.out.println(msg);
+                    }
+                });
+
+    }
+
 }
