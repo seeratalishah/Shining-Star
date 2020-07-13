@@ -337,7 +337,6 @@ public class Fragment_child_feed extends Fragment {
         act.put("childnames",act_node.child("childnames").getValue().toString());
         act.put("details",act_node.child("description").getValue().toString());
         act.put("photo_name",act_node.child("photo_name").getValue().toString());
-        act.put("address",act_node.child("address").getValue().toString());
         return act;
     }
 

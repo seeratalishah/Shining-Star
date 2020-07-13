@@ -145,7 +145,7 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
     public void AddNewClass()
     {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         final String uid = firebaseAuth.getCurrentUser().getUid();
 
         LayoutInflater factory = LayoutInflater.from(Staff.this);
@@ -153,7 +153,6 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
 
         final View textEntryView = factory.inflate(R.layout.class_data_layout, null);
 
-        final EditText id = (EditText) textEntryView.findViewById(R.id.classid);
         final EditText name = (EditText) textEntryView.findViewById(R.id.classname);
         final EditText room = (EditText) textEntryView.findViewById(R.id.classroom);
 
@@ -161,22 +160,18 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
         alert.setTitle("Add new room");
         alert.setMessage("Enter room details");
 
-
+        final String roomId = db.push().getKey();
 
         alert.setView(textEntryView);
 
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
 
-                final String Classcode = id.getText().toString();
+                //final String Classcode = id.getText().toString();
                 final String Classname = name.getText().toString();
                 final String Classroom = room.getText().toString();
 
-                if(Classcode.isEmpty())
-                    Toast.makeText(getApplicationContext(), "Class Code cannot be empty!", Toast.LENGTH_SHORT).show();
-                else
-                {
-                    final DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
+                final DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
                     dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -185,30 +180,30 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
 
                             if(currClasses.equals("0"))
                             {
-                                dataRef.child("staff").child(uid).child("class_ids").setValue(Classcode + ",");
-                                dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
-                                dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
+                                dataRef.child("staff").child(uid).child("class_ids").setValue(roomId + ",");
+                                dataRef.child("classes").child(roomId).child("class_name").setValue(Classname);
+                                dataRef.child("classes").child(roomId).child("class_room").setValue(Classroom);
 
-                                dataRef.child("classes").child(Classcode).child("checked_in").setValue(0);
-                                dataRef.child("classes").child(Classcode).child("checked_out").setValue(0);
-                                dataRef.child("classes").child(Classcode).child("absent").setValue(0);
+                                dataRef.child("classes").child(roomId).child("checked_in").setValue(0);
+                                dataRef.child("classes").child(roomId).child("checked_out").setValue(0);
+                                dataRef.child("classes").child(roomId).child("absent").setValue(0);
 
-                                dataRef.child("classes").child(Classcode).child("children").setValue(0);
+                                dataRef.child("classes").child(roomId).child("children").setValue(0);
 
                                 RefreshClassList();
                             }
-                            else if(!isClassAssigned(currClasses, Classcode)) {
-                                currClasses += Classcode + ",";
+                            else if(!isClassAssigned(currClasses, roomId)) {
+                                currClasses += roomId + ",";
                                 dataRef.child("staff").child(uid).child("class_ids").setValue(currClasses);
-                                dataRef.child("classes").child(Classcode).child("class_name").setValue(Classname);
-                                dataRef.child("classes").child(Classcode).child("class_room").setValue(Classroom);
+                                dataRef.child("classes").child(roomId).child("class_name").setValue(Classname);
+                                dataRef.child("classes").child(roomId).child("class_room").setValue(Classroom);
 
-                                dataRef.child("classes").child(Classcode).child("checked_in").setValue(0);
-                                dataRef.child("classes").child(Classcode).child("checked_out").setValue(0);
-                                dataRef.child("classes").child(Classcode).child("absent").setValue(0);
+                                dataRef.child("classes").child(roomId).child("checked_in").setValue(0);
+                                dataRef.child("classes").child(roomId).child("checked_out").setValue(0);
+                                dataRef.child("classes").child(roomId).child("absent").setValue(0);
 
 
-                                dataRef.child("classes").child(Classcode).child("children").setValue(0);
+                                dataRef.child("classes").child(roomId).child("children").setValue(0);
 
                                 Toast.makeText(getApplicationContext(), "Your new class has been added", Toast.LENGTH_SHORT).show();
                                 RefreshClassList();
@@ -223,7 +218,7 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
 
                         }
                     });
-                }
+
 
             }
         });

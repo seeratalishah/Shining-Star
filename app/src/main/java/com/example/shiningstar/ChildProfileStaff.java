@@ -58,7 +58,7 @@ public class ChildProfileStaff extends Fragment {
         // Required empty public constructor
     }
 
-    
+
     // TODO: Rename and change types and number of parameters
     public static ChildProfileStaff newInstance(String id,String name) {
         Bundle args = new Bundle();
@@ -93,7 +93,7 @@ public class ChildProfileStaff extends Fragment {
         tv_notes= (TextView) v.findViewById(R.id.et_childNotes);
         iv_child = (ImageView)v.findViewById(R.id.child_profile_edit_pic) ;
         saveBtn = (Button)v.findViewById(R.id.btn_child_profile_save);
-        delBtn = (Button)v.findViewById(R.id.btn_child_profile_delete);
+        //delBtn = (Button)v.findViewById(R.id.btn_child_profile_delete);
 
         childid = getArguments().getString("id");
         childName = getArguments().getString("name");

@@ -74,8 +74,6 @@ public class Login extends AppCompatActivity {
 
         signin = findViewById(R.id.signinbtn);
         signup = findViewById(R.id.signupbtn);
-
-        admin = findViewById(R.id.admin_radio);
         parent = findViewById(R.id.parent_radio);
         staff = findViewById(R.id.staff_radio);
 
@@ -180,7 +178,6 @@ public class Login extends AppCompatActivity {
             type = loginData[2];
             if(type.equalsIgnoreCase("staff")) {staff.setChecked(true);}
             else if(type.equalsIgnoreCase("parents")) {parent.setChecked(true);}
-            else if(type.equalsIgnoreCase("admins")) {admin.setChecked(true);}
         }
 
         if(staff.isChecked())
@@ -197,12 +194,6 @@ public class Login extends AppCompatActivity {
             LoginAs("parents", uid, i);
         }
 
-        else if (admin.isChecked())
-        {
-            type = "admins";
-            Intent i = new Intent(this, Admin.class);
-            LoginAs("admins", uid, i);
-        }
     }
 
 

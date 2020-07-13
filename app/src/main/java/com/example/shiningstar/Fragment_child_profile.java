@@ -13,6 +13,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Environment;
 import android.os.StrictMode;
@@ -33,6 +35,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -68,14 +71,16 @@ public class Fragment_child_profile extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
+    FragmentManager fragmentmanager;
     private String childid,childName;
     private TextView tv_childname,tv_dob,tv_parent,tv_num,tv_meds,tv_allergy,tv_notes;
     private ImageView iv_child;
     private Button saveBtn,delBtn;
     DatabaseReference db = FirebaseDatabase.getInstance().getReference();
     DatabaseReference childrenTb = db.child("children");
+    DatabaseReference parentTb = db.child("parents");
     DatabaseReference child;
+    DatabaseReference parent;
     private Uri myUri;
     private static final int CAMERA_INT = 1;
     private static final int GALLERY_INT = 2;
@@ -106,7 +111,10 @@ public class Fragment_child_profile extends Fragment {
         tv_notes= (TextView) v.findViewById(R.id.et_childNotes);
         iv_child = (ImageView)v.findViewById(R.id.child_profile_edit_pic) ;
         saveBtn = (Button)v.findViewById(R.id.btn_child_profile_save);
-        delBtn = (Button)v.findViewById(R.id.btn_child_profile_delete);
+       // delBtn = (Button)v.findViewById(R.id.btn_child_profile_delete);
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        final String uid = auth.getCurrentUser().getUid();
 
         childid = getArguments().getString("id");
         childName = getArguments().getString("name");
@@ -122,14 +130,6 @@ public class Fragment_child_profile extends Fragment {
         setCurrentData();
 
         if(getActivity().getClass() != Staff.class)
-            delBtn.setVisibility(View.GONE);
-
-        delBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                child.removeValue();
-            }
-        });
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,9 +150,9 @@ public class Fragment_child_profile extends Fragment {
                     child.child("notes").setValue(tv_notes.getText().toString());
 
                 CheckAndAddPic();
-                InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+               /* InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                        InputMethodManager.HIDE_NOT_ALWAYS); */
                 Toast.makeText(getContext(), "All changes saved!", Toast.LENGTH_SHORT).show();
             }
         });
@@ -249,13 +249,16 @@ public class Fragment_child_profile extends Fragment {
 
 
     private void CheckAndAddPic(){
+
+        final String picId = db.push().getKey();
+
         if(!isImageUploaded){
             //Toast.makeText(getContext(), "No image selected", Toast.LENGTH_SHORT).show();
         } else {
             myProgress.setMessage("Uploading Photo");
             myProgress.show();
             DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("children");
-            String ImageName = childid+"_profilePic";
+            String ImageName = childid+picId;
             db.child(childid).child("pic").setValue("");
             db.child(childid).child("pic").setValue(ImageName);
 
@@ -288,7 +291,7 @@ public class Fragment_child_profile extends Fragment {
                 tv_notes.setText((dataSnapshot.child("notes").getValue() != null)? dataSnapshot.child("notes").getValue().toString() : "");
                 String pic_name = (dataSnapshot.child("pic").getValue() != null)? dataSnapshot.child("pic").getValue().toString() : "";
                 if(!pic_name.isEmpty()||pic_name.equalsIgnoreCase("0")) {
-                    StorageReference pic = FirebaseStorage.getInstance().getReference().child("PostImages").child(pic_name);
+                    StorageReference pic = FirebaseStorage.getInstance().getReference().child("images").child(pic_name);
                     Glide.with(getContext()).using(new FirebaseImageLoader())
                             .load(pic)
                             .diskCacheStrategy(DiskCacheStrategy.NONE)

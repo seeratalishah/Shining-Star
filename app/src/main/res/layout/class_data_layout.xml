@@ -5,20 +5,6 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/classid"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:backgroundTint="#5252CC"
-        android:hint="Room ID"
-        android:textColorHint="#5252CC"
-        android:textSize="15dp">
-
-    </EditText>
-
-    <EditText
         android:id="@+id/classname"
         android:layout_width="200dp"
         android:layout_height="40dp"

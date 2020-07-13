@@ -146,6 +146,7 @@ public class ParentAddChild extends Fragment {
         }
 
         final String actId = db.push().getKey();
+        final String picId = db.push().getKey();
         name = childName.getText().toString();
 
         final DatabaseReference parent = db.child("parents");
@@ -165,24 +166,9 @@ public class ParentAddChild extends Fragment {
                 if(currentChildren.equals("0"))
                 {
                     parent.child(uid).child("children").setValue(actId+',');
-
-                    /*
-
-                    if(dataSnapshot.hasChild("classes")){
-
-                        for (String currClassID : myList) {
-                            classes.child(currClassID).child("children").setValue(childId+',');
-                        }
-
-
-                    }
-
-                    */
-
-
                     children.child(actId).child("name").setValue(name);
                     children.child(actId).child("id").setValue(actId);
-                    children.child(actId).child("pic").setValue(name);
+                    children.child(actId).child("pic").setValue(picId);
                     children.child(actId).child("act_ids").setValue(0);
                     Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
                     GoBackToChildList();
@@ -190,20 +176,9 @@ public class ParentAddChild extends Fragment {
                 else if(!isClassAssigned(currentChildren, actId)) {
                     currentChildren += actId + ",";
                     parent.child(uid).child("children").setValue(currentChildren);
-
-                  /*  if(dataSnapshot.hasChild("classes")){
-
-                        for (String currClassID : myList) {
-                            classes.child(currClassID).child("children").setValue(currentChildren);
-                        }
-
-
-                    }
-                    */
-
                     children.child(actId).child("name").setValue(name);
                     children.child(actId).child("id").setValue(actId);
-                    children.child(actId).child("pic").setValue(name);
+                    children.child(actId).child("pic").setValue(picId);
                     children.child(actId).child("act_ids").setValue(0);
                     Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
                     GoBackToChildList();
@@ -220,7 +195,7 @@ public class ParentAddChild extends Fragment {
                     progressDialog.show();
 
 
-                    StorageReference ref = FirebaseStorage.getInstance().getReference().child("images").child(name);
+                    StorageReference ref = FirebaseStorage.getInstance().getReference().child("images").child(picId);
                     ref.putFile(filePath)
                             .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override

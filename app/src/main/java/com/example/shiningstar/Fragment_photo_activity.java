@@ -88,7 +88,6 @@ public class Fragment_photo_activity extends Fragment {
     private boolean isImageUploaded = false;
 
     private Uri myUri;
-    private String address = "";
 
 
     public Fragment_photo_activity() {
@@ -128,7 +127,6 @@ public class Fragment_photo_activity extends Fragment {
         public void onReceive(Context context, Intent intent) {
             // Get extra data included in the Intent
             String addr = intent.getStringExtra("location");
-            address = addr;
             Location_TV.setText(addr);
         }
     };
@@ -152,7 +150,6 @@ public class Fragment_photo_activity extends Fragment {
         ClassId = ClassFragment.className;
         TaggedKids_TV = (TextView) view.findViewById(R.id.Photo_taggedKids);
         SetChildData();
-        Location_TV = (TextView) view.findViewById(R.id.Photo_locationTV);
 
         // Edit Texts
         PhotoDescription = (EditText) view.findViewById(R.id.Photo_Description);
@@ -199,7 +196,7 @@ public class Fragment_photo_activity extends Fragment {
             @Override
             public void onClick(View v) {
                 CheckAndAddPost();
-                InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+               InputMethodManager inputManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
                         InputMethodManager.HIDE_NOT_ALWAYS);
             }
@@ -318,10 +315,6 @@ public class Fragment_photo_activity extends Fragment {
         {
             Photo_Description = des;
         }
-        if(address.isEmpty())
-        {
-            address = "No address provided";
-        }
         if(CurrentTime.isChecked())
         {
             SimpleDateFormat MyFormat = new SimpleDateFormat("hh:mm a");
@@ -384,7 +377,6 @@ public class Fragment_photo_activity extends Fragment {
         databaseReference.child(MyActId).child("description").setValue(Photo_Description);
         databaseReference.child(MyActId).child("class").setValue(ClassId);
         databaseReference.child(MyActId).child("childnames").setValue(TaggedKidsString);
-        databaseReference.child(MyActId).child("address").setValue(address);
 
         progressDialog.setMessage("Uploading image to cloud");
         String ImageName = "Image_" + MyActId;

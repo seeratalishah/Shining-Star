@@ -58,7 +58,6 @@ public class RegisterUser extends AppCompatActivity {
         signin = findViewById(R.id.signinbtn);
         signup = findViewById(R.id.signupbtn);
 
-        admin = findViewById(R.id.admin_radio);
         parent = findViewById(R.id.parent_radio);
         staff = findViewById(R.id.staff_radio);
 
@@ -91,73 +90,7 @@ public class RegisterUser extends AppCompatActivity {
     private void UserType()
     {
 
-        if(admin.isChecked())
-        {
-            final String names = name.getText().toString().trim();
-            final String emails = email.getText().toString().trim();
-            final String passwords = password.getText().toString().trim();
-
-            progressDialog.setTitle("Registering");
-            progressDialog.setMessage("Creating your account...");
-            progressDialog.show();
-
-            firebaseAuth.createUserWithEmailAndPassword(emails, passwords)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            progressDialog.dismiss();
-                            if (task.isSuccessful()) {
-
-                                AdminData data = new AdminData(
-                                        names,
-                                        emails,
-                                        passwords
-                                );
-
-                                FirebaseDatabase.getInstance().getReference("admins")
-                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()){
-                                            firebaseAuth.getCurrentUser().sendEmailVerification()
-                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                        @Override
-                                                        public void onComplete(@NonNull Task<Void> task) {
-                                                            if(task.isSuccessful()){
-                                                   /* Toast.makeText(Reg.this, "Registeration Successful, Please " +
-                                                                    "check your email for verification.",
-                                                            Toast.LENGTH_LONG).show(); */
-                                                                Toast.makeText(RegisterUser.this,"Registeration Successful, Please check your email for verification.",
-                                                                        Toast.LENGTH_SHORT).show();
-                                                                Intent intent = new Intent(RegisterUser.this, Login.class);
-                                                                startActivity(intent);
-                                                            }
-                                                            else{
-                                                                Toast.makeText(RegisterUser.this,task.getException().getMessage(),
-                                                                        Toast.LENGTH_LONG).show();
-                                                            }
-
-                                                        }
-                                                    });
-                                        }
-                                        else{
-                                            Toast.makeText(RegisterUser.this,"Signup Failed!",Toast.LENGTH_LONG).show();
-
-                                        }
-                                    }
-                                });
-                            }
-                            else{
-                                Toast.makeText(RegisterUser.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
-
-                            }
-                        }
-                    });
-
-        }
-
-        else if (parent.isChecked())
+        if (parent.isChecked())
         {
             final String names = name.getText().toString().trim();
             final String emails = email.getText().toString().trim();

@@ -139,7 +139,6 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 pic.time_class.setText("Time: "+act.get("time") + "\nClass: "+act.get("class"));
                 pic.kids.setText("Tagged kids: "+act.get("childnames"));
                 pic.details.setText("Details: "+act.get("details"));
-                pic.location.setText("Location: " + act.get("address"));
                 StorageReference sr = FirebaseStorage.getInstance().getReference();
                 StorageReference picRef = sr.child("images").child(act.get("photo_name"));
                 Glide.with(pic.itemView.getContext())
@@ -148,6 +147,7 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                         .diskCacheStrategy(DiskCacheStrategy.NONE)
                         .skipMemoryCache(true)
                         .into(pic.pic);
+                break;
             case 7: //Note
                 NoteActHolder note = (NoteActHolder)holder;
                 note.note_details.setText("Note: "+act.get("note") );
@@ -244,14 +244,6 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
 
-    static class NoteActHolder extends RecyclerView.ViewHolder{
-        private TextView note_details;
-        public NoteActHolder(View v){
-            super(v);
-            note_details = (TextView)v.findViewById(R.id.note_details);
-        }
-    }
-
     static class PicActHolder extends RecyclerView.ViewHolder{
         private TextView time_class,kids,details, location;
         private ImageView pic;
@@ -264,4 +256,14 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             location = (TextView) v.findViewById(R.id.photo_location);
         }
     }
+
+    static class NoteActHolder extends RecyclerView.ViewHolder{
+        private TextView note_details;
+        public NoteActHolder(View v){
+            super(v);
+            note_details = (TextView)v.findViewById(R.id.note_details);
+        }
+    }
+
+
 }
