@@ -170,6 +170,13 @@ public class Parent extends AppCompatActivity implements NavigationView.OnNaviga
             finish();
         }
 
+        else if(id == R.id.payment_parent)
+        {
+            Intent i = new Intent(this,Payment.class);
+            startActivity(i);
+            finish();
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

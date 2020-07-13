@@ -3,8 +3,12 @@
 
 <group android:checkableBehavior="single">
     <item
+        android:id="@+id/payment_parent"
+        android:title="Payment" />
+    <item
         android:id="@+id/logout_parent"
         android:title="Log Out" />
+
 </group>
 
 </menu>

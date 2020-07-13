@@ -280,6 +280,13 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
             finish();
         }
 
+        else if(id == R.id.payment_staff)
+        {
+            Intent i = new Intent(this,Payment_s.class);
+            startActivity(i);
+            finish();
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -3,6 +3,9 @@
 
 <group android:checkableBehavior="single">
     <item
+        android:id="@+id/payment_staff"
+        android:title="Payment" />
+    <item
         android:id="@+id/logout_staff"
         android:title="Log Out" />
 </group>
