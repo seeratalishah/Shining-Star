@@ -144,89 +144,94 @@ public class ParentAddChild extends Fragment {
         {
             Toast.makeText(getContext(),"Upload Image first",Toast.LENGTH_SHORT).show();
         }
-
-        final String actId = db.push().getKey();
-        final String picId = db.push().getKey();
-        name = childName.getText().toString();
-
-        final DatabaseReference parent = db.child("parents");
-        final DatabaseReference children = db.child("children");
-        final DatabaseReference classes = db.child("classes");
-        db.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                String currentChildren = dataSnapshot.child("parents").child(uid).child("children").getValue().toString();
+        else {
 
 
-                storage = FirebaseStorage.getInstance();
-                storageReference = storage.getReference();
+            final String actId = db.push().getKey();
+            final String picId = db.push().getKey();
+            name = childName.getText().toString();
+
+            final DatabaseReference parent = db.child("parents");
+            final DatabaseReference children = db.child("children");
+            final DatabaseReference classes = db.child("classes");
+            db.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    String currentChildren = dataSnapshot.child("parents").child(uid).child("children").getValue().toString();
 
 
-                if(currentChildren.equals("0"))
-                {
-                    parent.child(uid).child("children").setValue(actId+',');
-                    children.child(actId).child("name").setValue(name);
-                    children.child(actId).child("id").setValue(actId);
-                    children.child(actId).child("pic").setValue(picId);
-                    children.child(actId).child("act_ids").setValue(0);
-                    Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
-                    GoBackToChildList();
+                    storage = FirebaseStorage.getInstance();
+                    storageReference = storage.getReference();
+
+
+                    if(currentChildren.equals("0"))
+                    {
+                        parent.child(uid).child("children").setValue(actId+',');
+                        children.child(actId).child("name").setValue(name);
+                        children.child(actId).child("id").setValue(actId);
+                        children.child(actId).child("pic").setValue(picId);
+                        children.child(actId).child("act_ids").setValue(0);
+                        Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
+                        GoBackToChildList();
+                    }
+                    else if(!isClassAssigned(currentChildren, actId)) {
+                        currentChildren += actId + ",";
+                        parent.child(uid).child("children").setValue(currentChildren);
+                        children.child(actId).child("name").setValue(name);
+                        children.child(actId).child("id").setValue(actId);
+                        children.child(actId).child("pic").setValue(picId);
+                        children.child(actId).child("act_ids").setValue(0);
+                        Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
+                        GoBackToChildList();
+                    }
+                    else {
+                        Toast.makeText(getContext(), "A child already exists with this ID", Toast.LENGTH_LONG).show();
+                    }
+
+
+                    if(filePath != null)
+                    {
+                        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+                        progressDialog.setTitle("Uploading...");
+                        progressDialog.show();
+
+
+                        StorageReference ref = FirebaseStorage.getInstance().getReference().child("images").child(picId);
+                        ref.putFile(filePath)
+                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                        progressDialog.dismiss();
+
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        progressDialog.dismiss();
+
+                                    }
+                                })
+                                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                                        double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                                .getTotalByteCount());
+                                        progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                                    }
+                                });
+                    }
+
+
+
                 }
-                else if(!isClassAssigned(currentChildren, actId)) {
-                    currentChildren += actId + ",";
-                    parent.child(uid).child("children").setValue(currentChildren);
-                    children.child(actId).child("name").setValue(name);
-                    children.child(actId).child("id").setValue(actId);
-                    children.child(actId).child("pic").setValue(picId);
-                    children.child(actId).child("act_ids").setValue(0);
-                    Toast.makeText(getContext(),"Child added",Toast.LENGTH_SHORT).show();
-                    GoBackToChildList();
-                }
-                else {
-                    Toast.makeText(getContext(), "A child already exists with this ID", Toast.LENGTH_LONG).show();
-                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
 
+        }
 
-                if(filePath != null)
-                {
-                    final ProgressDialog progressDialog = new ProgressDialog(getContext());
-                    progressDialog.setTitle("Uploading...");
-                    progressDialog.show();
-
-
-                    StorageReference ref = FirebaseStorage.getInstance().getReference().child("images").child(picId);
-                    ref.putFile(filePath)
-                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                    progressDialog.dismiss();
-
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    progressDialog.dismiss();
-
-                                }
-                            })
-                            .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                                    double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
-                                            .getTotalByteCount());
-                                    progressDialog.setMessage("Uploaded "+(int)progress+"%");
-                                }
-                            });
-                }
-
-
-
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        });
     }
 
 

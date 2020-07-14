@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements Fragment_staff_cl
             manager.createNotificationChannel(channel);
 
         }
-
     }
 
     private void signin(View viewById) {

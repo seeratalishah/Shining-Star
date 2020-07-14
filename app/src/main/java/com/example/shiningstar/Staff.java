@@ -148,7 +148,6 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
 
         LayoutInflater factory = LayoutInflater.from(Staff.this);
 
-
         final View textEntryView = factory.inflate(R.layout.class_data_layout, null);
 
         final EditText name = (EditText) textEntryView.findViewById(R.id.classname);
@@ -169,7 +168,20 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
                 final String Classname = name.getText().toString();
                 final String Classroom = room.getText().toString();
 
-                final DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
+                if(Classname.length()==0){
+
+                    Toast.makeText(Staff.this, "Roomname cannot be empty",Toast.LENGTH_LONG).show();
+
+                }
+                else if(Classroom.length()==0){
+
+                    Toast.makeText(Staff.this, "Room number cannot be empty",Toast.LENGTH_LONG).show();
+
+                }
+                else{
+
+
+                    final DatabaseReference dataRef = FirebaseDatabase.getInstance().getReference();
                     dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -218,6 +230,10 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
                     });
 
 
+
+                }
+
+
             }
         });
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -242,19 +258,6 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
     }
 
 
-
-
-
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

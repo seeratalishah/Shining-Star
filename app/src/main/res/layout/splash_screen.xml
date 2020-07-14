@@ -12,10 +12,10 @@
         android:id="@+id/splashimage"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:scaleType="fitCenter"
-        android:background="@drawable/ic_shiningicon"
-        android:layout_gravity="center"
         android:layout_marginTop="150dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/ic_shiningiconnn"
+        android:layout_gravity="center"
         ></ImageView>
 
     <TextView
@@ -23,11 +23,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="-170dp"
+        android:layout_marginLeft="10dp"
         android:fontFamily="@font/electrolize"
         android:text="Shining Star"
-        android:textColor="@color/colorPrimary"
-        android:textSize="40dp" />
+        android:textColor="@color/white"
+        android:textSize="25dp" />
 
 
 </LinearLayout>
