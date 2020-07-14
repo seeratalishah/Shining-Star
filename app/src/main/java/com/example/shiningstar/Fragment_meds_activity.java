@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -236,6 +237,9 @@ public class Fragment_meds_activity extends Fragment {
 
     private void AddNewMedsPost(String Med_time)
     {
+        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
+
         String med_name = Med_Name.getText().toString();
         String medSymptoms = Med_Symptoms.getText().toString();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("activities");
@@ -246,6 +250,7 @@ public class Fragment_meds_activity extends Fragment {
         databaseReference.child(MyActId).child("time").setValue(Med_time);
         databaseReference.child(MyActId).child("class").setValue(ClassId);
         databaseReference.child(MyActId).child("childnames").setValue(TaggedKidsString);
+        databaseReference.child(MyActId).child("date").setValue(date);
         AddMedsPostToTaggedKids(MyActId);
     }
 

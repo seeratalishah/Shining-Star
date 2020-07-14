@@ -23,8 +23,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -206,6 +209,9 @@ public class Fragment_nap_activity extends Fragment {
 
     private void AddNapPost(String startTime, String EndTime)
     {
+
+        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("activities");
         String MyActId = databaseReference.push().getKey();
         databaseReference.child(MyActId).child("type").setValue("Nap");
@@ -214,6 +220,7 @@ public class Fragment_nap_activity extends Fragment {
         databaseReference.child(MyActId).child("nap_details").setValue(NapDetails);
         databaseReference.child(MyActId).child("class").setValue(ClassId);
         databaseReference.child(MyActId).child("childnames").setValue(TaggedKidsString);
+        databaseReference.child(MyActId).child("date").setValue(date);
         AddNapPostToTaggedKids(MyActId);
     }
 

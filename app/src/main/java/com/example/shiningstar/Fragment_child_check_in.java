@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -218,6 +219,7 @@ public class Fragment_child_check_in extends Fragment {
 
 
     private void addActivity(final List<HashMap<String,String>> selectedKids, String activityType){
+        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         SimpleDateFormat MyFormat = new SimpleDateFormat("hh:mm a");
         String currentTime = MyFormat.format(new Date());
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
@@ -228,6 +230,7 @@ public class Fragment_child_check_in extends Fragment {
         DatabaseReference newAct = activitiesTb.child(actId);
         newAct.child("type").setValue("attendance");
         newAct.child("time").setValue(currentTime);
+        newAct.child("date").setValue(date);
         newAct.child("class").setValue(ClassFragment.className);
         switch (activityType){
             case "checked_in": newAct.child("name").setValue("Checked In"); break;

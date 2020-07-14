@@ -106,11 +106,13 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 }
                 atd_holder.atd_type.setText(act.get("name"));
                 atd_holder.atd_time.setText(act.get("time"));
+                atd_holder.date.setText("Date: "+act.get("date"));
                 atd_holder.atd_class.setText("Class: "+act.get("class"));
                 break;
             case 2: //Custom activity item
                 CustomActHolder act_holder = (CustomActHolder) holder;
                 act_holder.act_name.setText(act.get("name"));
+                act_holder.date.setText("Date: "+act.get("date"));
                 act_holder.act_time_class.setText("Time: "+act.get("time")+"\nClass: "+act.get("class"));
                 act_holder.act_kids.setText("Tagged kids: "+act.get("childnames"));
                 act_holder.act_details.setText("Details: "+act.get("details"));
@@ -121,24 +123,28 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 food_holder.act_time_class.setText("Time: "+act.get("time")+"\nClass: "+act.get("class"));
                 food_holder.act_items.setText("Food: "+act.get("food_items"));
                 food_holder.act_ingredients.setText("Ingredients: "+act.get("ingredients"));
+                food_holder.date.setText("Date: "+act.get("date"));
                 break;
             case 4: //Nap
                 NapActHolder nap = (NapActHolder)holder;
                 nap.className.setText("Class: "+act.get("class"));
                 nap.times.setText("Time: "+act.get("start_time")+" - "+act.get("end_time"));
                 nap.details.setText("Details: "+act.get("details"));
+                nap.date.setText("Date: "+act.get("date"));
                 break;
             case 5: //Meds
                 MedActHolder med = (MedActHolder)holder;
                 med.time_class.setText("Time: "+act.get("time") + "\nClass: "+act.get("class"));
                 med.med.setText("Meds: "+act.get("med_name"));
                 med.symptoms.setText("Symptoms: "+act.get("symptoms"));
+                med.date.setText("Date: "+act.get("date"));
                 break;
             case 6: //Photo
                 PicActHolder pic = (PicActHolder)holder;
                 pic.time_class.setText("Time: "+act.get("time") + "\nClass: "+act.get("class"));
                 pic.kids.setText("Tagged kids: "+act.get("childnames"));
                 pic.details.setText("Details: "+act.get("details"));
+                pic.date.setText("Date: "+act.get("date"));
                 StorageReference sr = FirebaseStorage.getInstance().getReference();
                 StorageReference picRef = sr.child("images").child(act.get("photo_name"));
                 Glide.with(pic.itemView.getContext())
@@ -151,6 +157,7 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             case 7: //Note
                 NoteActHolder note = (NoteActHolder)holder;
                 note.note_details.setText("Note: "+act.get("note") );
+                note.date.setText("Date: "+act.get("date"));
                 break;
         }
 
@@ -163,13 +170,14 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     static class AttendanceHolder extends RecyclerView.ViewHolder{
         private ImageView atd_img;
-        private TextView atd_type,atd_time,atd_class;
+        private TextView atd_type,atd_time,atd_class, date;
         public AttendanceHolder(View v){
             super(v);
             atd_img = (ImageView)v.findViewById(R.id.attendance_img);
             atd_type = (TextView)v.findViewById(R.id.attendance_act_type);
             atd_time = (TextView)v.findViewById(R.id.attendance_time);
             atd_class = (TextView)v.findViewById(R.id.attendance_class);
+            date = (TextView)v.findViewById(R.id.date_atd);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -180,7 +188,7 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     static class CustomActHolder extends RecyclerView.ViewHolder{
-        private TextView act_name,act_time_class,act_kids,act_details;
+        private TextView date,act_name,act_time_class,act_kids,act_details;
         boolean toggle = true;
         public CustomActHolder(View v){
             super(v);
@@ -188,6 +196,7 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             act_time_class = (TextView)v.findViewById(R.id.custom_act_time_and_class);
             act_details = (TextView)v.findViewById(R.id.custom_act_details);
             act_kids = (TextView)v.findViewById(R.id.custom_act_kids);
+            date = (TextView)v.findViewById(R.id.date_cs);
             act_kids.setSingleLine(toggle);
             act_details.setSingleLine(toggle);
             v.setOnClickListener(new View.OnClickListener() {
@@ -202,7 +211,7 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
     static class FoodActHolder extends RecyclerView.ViewHolder{
-        private TextView act_meal_name,act_time_class,act_items,act_ingredients;
+        private TextView act_meal_name,act_time_class,act_items,act_ingredients, date;
         boolean toggle = true;
         public FoodActHolder(View v){
             super(v);
@@ -210,6 +219,7 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             act_time_class = (TextView)v.findViewById(R.id.food_time_and_class);
             act_items = (TextView)v.findViewById(R.id.food_items);
             act_ingredients = (TextView)v.findViewById(R.id.food_details);
+            date = (TextView)v.findViewById(R.id.date_food);
 //            act_kids.setSingleLine(toggle);
 //            act_details.setSingleLine(toggle);
             v.setOnClickListener(new View.OnClickListener() {
@@ -225,27 +235,29 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     static class NapActHolder extends RecyclerView.ViewHolder{
-        private TextView className,times,details;
+        private TextView className,times,details, date;
         public NapActHolder(View v){
             super(v);
             className = (TextView)v.findViewById(R.id.nap_class);
             times = (TextView)v.findViewById(R.id.nap_times);
             details =(TextView)v.findViewById(R.id.nap_details);
+            date = (TextView)v.findViewById(R.id.date_nap);
         }
     }
 
     static class MedActHolder extends RecyclerView.ViewHolder{
-        private TextView time_class,med,symptoms;
+        private TextView time_class,med,symptoms,date;
         public MedActHolder(View v){
             super(v);
             time_class = (TextView)v.findViewById(R.id.med_time_and_class);
             med = (TextView)v.findViewById(R.id.med_name);
             symptoms =(TextView)v.findViewById(R.id.med_symptoms);
+            date = (TextView)v.findViewById(R.id.date_med);
         }
     }
 
     static class PicActHolder extends RecyclerView.ViewHolder{
-        private TextView time_class,kids,details, location;
+        private TextView time_class,kids,details, location, date;
         private ImageView pic;
         public PicActHolder(View v){
             super(v);
@@ -254,14 +266,16 @@ public class MyChildFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             details = (TextView)v.findViewById(R.id.photo_details);
             pic = (ImageView)v.findViewById(R.id.photo_holder);
             location = (TextView) v.findViewById(R.id.photo_location);
+            date = (TextView)v.findViewById(R.id.date_photo);
         }
     }
 
     static class NoteActHolder extends RecyclerView.ViewHolder{
-        private TextView note_details;
+        private TextView note_details,date;
         public NoteActHolder(View v){
             super(v);
             note_details = (TextView)v.findViewById(R.id.note_details);
+            date = (TextView)v.findViewById(R.id.date_note);
         }
     }
 

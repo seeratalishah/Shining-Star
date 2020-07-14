@@ -24,8 +24,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -127,6 +130,9 @@ public class Fragment_note_activity extends Fragment {
 
     private void AddNewNotePost()
     {
+        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
+
         String note_name = noteEdit.getText().toString();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("activities");
@@ -135,6 +141,7 @@ public class Fragment_note_activity extends Fragment {
         databaseReference.child(MyActId).child("note").setValue(note_name);
         databaseReference.child(MyActId).child("class").setValue(ClassId);
         databaseReference.child(MyActId).child("childnames").setValue(TaggedKidsString);
+        databaseReference.child(MyActId).child("date").setValue(date);
         AddNote(MyActId);
     }
 

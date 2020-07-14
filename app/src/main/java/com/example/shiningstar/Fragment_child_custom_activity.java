@@ -31,6 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -178,6 +179,8 @@ public class Fragment_child_custom_activity extends Fragment {
 
     private void AddNewActivity(String Act_time)
     {
+        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
         String Act_Name = ActivityName.getText().toString();
         String Act_Details = ActivityDetails.getText().toString();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("activities");
@@ -187,6 +190,7 @@ public class Fragment_child_custom_activity extends Fragment {
         databaseReference.child(MyActId).child("details").setValue(Act_Details);
         databaseReference.child(MyActId).child("time").setValue(Act_time);
         databaseReference.child(MyActId).child("class").setValue(ClassId);
+        databaseReference.child(MyActId).child("date").setValue(date);
         String Names = "";
         for(ChildDataElement temp : TaggedChildList)
         {

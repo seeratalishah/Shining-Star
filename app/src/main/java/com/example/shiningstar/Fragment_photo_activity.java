@@ -52,6 +52,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -368,6 +369,9 @@ public class Fragment_photo_activity extends Fragment {
 
     private void AddImagePost(String Act_time)
     {
+        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
+
         progressDialog.setMessage("Adding data to cloud");
         progressDialog.show();
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("activities");
@@ -377,6 +381,7 @@ public class Fragment_photo_activity extends Fragment {
         databaseReference.child(MyActId).child("description").setValue(Photo_Description);
         databaseReference.child(MyActId).child("class").setValue(ClassId);
         databaseReference.child(MyActId).child("childnames").setValue(TaggedKidsString);
+        databaseReference.child(MyActId).child("date").setValue(date);
 
         progressDialog.setMessage("Uploading image to cloud");
         String ImageName = "Image_" + MyActId;

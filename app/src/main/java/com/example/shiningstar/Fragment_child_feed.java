@@ -281,6 +281,7 @@ public class Fragment_child_feed extends Fragment {
         act.put("name",act_node.child("name").getValue().toString());
         act.put("class",act_node.child("class").getValue().toString());
         act.put("time",act_node.child("time").getValue().toString());
+        act.put("date", act_node.child("date").getValue().toString());
         return act;
     }
 
@@ -292,6 +293,7 @@ public class Fragment_child_feed extends Fragment {
         act.put("time",act_node.child("time").getValue().toString());
         act.put("details",act_node.child("details").getValue().toString());
         act.put("childnames", act_node.child("childnames").getValue().toString());
+        act.put("date", act_node.child("date").getValue().toString());
         return act;
     }
 
@@ -305,6 +307,7 @@ public class Fragment_child_feed extends Fragment {
         act.put("childnames", act_node.child("childnames").getValue().toString());
         act.put("food_items",act_node.child("food_name").getValue().toString());
         act.put("ingredients",act_node.child("ingredients").getValue().toString());
+        act.put("date", act_node.child("date").getValue().toString());
         return act;
     }
 
@@ -316,6 +319,7 @@ public class Fragment_child_feed extends Fragment {
         act.put("end_time",act_node.child("end_time").getValue().toString());
         act.put("details",act_node.child("nap_details").getValue().toString());
         act.put("childnames", act_node.child("childnames").getValue().toString());
+        act.put("date", act_node.child("date").getValue().toString());
         return act;
     }
 
@@ -326,6 +330,7 @@ public class Fragment_child_feed extends Fragment {
         act.put("time",act_node.child("time").getValue().toString());
         act.put("med_name",act_node.child("med_name").getValue().toString());
         act.put("symptoms",act_node.child("med_symptoms").getValue().toString());
+        act.put("date", act_node.child("date").getValue().toString());
         return act;
     }
 
@@ -337,6 +342,7 @@ public class Fragment_child_feed extends Fragment {
         act.put("childnames",act_node.child("childnames").getValue().toString());
         act.put("details",act_node.child("description").getValue().toString());
         act.put("photo_name",act_node.child("photo_name").getValue().toString());
+        act.put("date", act_node.child("date").getValue().toString());
         return act;
     }
 
@@ -346,6 +352,7 @@ public class Fragment_child_feed extends Fragment {
         act.put("class",act_node.child("class").getValue().toString());
         act.put("childnames",act_node.child("childnames").getValue().toString());
         act.put("note",act_node.child("note").getValue().toString());
+        act.put("date", act_node.child("date").getValue().toString());
         return act;
     }
 
