@@ -193,7 +193,7 @@ public class ParentAddChild extends Fragment {
                     if(filePath != null)
                     {
                         final ProgressDialog progressDialog = new ProgressDialog(getContext());
-                        progressDialog.setTitle("Uploading...");
+                        progressDialog.setTitle("Processing...");
                         progressDialog.show();
 
 
@@ -218,7 +218,7 @@ public class ParentAddChild extends Fragment {
                                     public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                                         double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
                                                 .getTotalByteCount());
-                                        progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                                        progressDialog.setMessage("Uploaded");
                                     }
                                 });
                     }

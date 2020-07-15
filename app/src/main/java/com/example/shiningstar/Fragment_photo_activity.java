@@ -237,7 +237,8 @@ public class Fragment_photo_activity extends Fragment {
                     myUri = Uri.fromFile(f);
                     startActivityForResult(intent, CAMERA_INT);
                 } else if (items[item].equals("Choose from Gallery")) {
-                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
                     intent.setType("image/*");
                     startActivityForResult(intent, GALLERY_INT);
                 }
@@ -383,7 +384,7 @@ public class Fragment_photo_activity extends Fragment {
         databaseReference.child(MyActId).child("childnames").setValue(TaggedKidsString);
         databaseReference.child(MyActId).child("date").setValue(date);
 
-        progressDialog.setMessage("Uploading image to cloud");
+        progressDialog.setMessage("Uploading image");
         String ImageName = "Image_" + MyActId;
         databaseReference.child(MyActId).child("photo_name").setValue(ImageName);
 

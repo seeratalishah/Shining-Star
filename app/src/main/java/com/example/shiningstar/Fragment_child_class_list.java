@@ -190,7 +190,7 @@ public class Fragment_child_class_list extends Fragment {
     private void AddNewChildToThisClass()
     {
         AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
-        alert.setTitle("Add new child to this class");
+        alert.setTitle("Add new child to this room");
         alert.setMessage("Enter a valid code of the child recieved from parent");
 
         final EditText input = new EditText(getContext());
