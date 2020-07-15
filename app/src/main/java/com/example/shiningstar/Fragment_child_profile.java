@@ -137,17 +137,17 @@ public class Fragment_child_profile extends Fragment {
                 if(!tv_childname.getText().toString().isEmpty())
                     child.child("name").setValue(tv_childname.getText().toString());
                 if(!tv_dob.getText().toString().isEmpty())
-                    child.child("dob").setValue(tv_dob.getText().toString());
+                    child.child("dob").setValue("Date of Birth: "+tv_dob.getText().toString());
                 if(!tv_parent.getText().toString().isEmpty())
-                    child.child("parent").setValue(tv_parent.getText().toString());
+                    child.child("parent").setValue("Parent Name: "+tv_parent.getText().toString());
                 if(!tv_num.getText().toString().isEmpty())
-                    child.child("parent_num").setValue(tv_num.getText().toString());
+                    child.child("parent_num").setValue("Parent Number: "+tv_num.getText().toString());
                 if(!tv_meds.getText().toString().isEmpty())
-                    child.child("meds").setValue(tv_meds.getText().toString());
+                    child.child("meds").setValue("Medications: "+tv_meds.getText().toString());
                 if(!tv_allergy.getText().toString().isEmpty())
-                    child.child("allergy").setValue(tv_allergy.getText().toString());
+                    child.child("allergy").setValue("Alergies: "+tv_allergy.getText().toString());
                 if(!tv_notes.getText().toString().isEmpty())
-                    child.child("notes").setValue(tv_notes.getText().toString());
+                    child.child("notes").setValue("Notes: "+tv_notes.getText().toString());
 
                 CheckAndAddPic();
                /* InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

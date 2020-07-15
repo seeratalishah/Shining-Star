@@ -216,7 +216,7 @@ public class Staff extends AppCompatActivity implements NavigationView.OnNavigat
                                 dataRef.child("classes").child(roomId).child("children").setValue(0);
 
                                 Toast.makeText(getApplicationContext(), "Your new class has been added", Toast.LENGTH_SHORT).show();
-                                RefreshClassList();
+                                //RefreshClassList();
                             }
                             else {
                                 Toast.makeText(getApplicationContext(), "You have been assigned to this class already!", Toast.LENGTH_LONG).show();
